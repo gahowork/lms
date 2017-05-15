@@ -5,6 +5,14 @@ CREATE TABLE adventures (
 	CONSTRAINT pk_adventures PRIMARY KEY (id)
 );
 
+CREATE TABLE adventurequestions (
+	id INT NOT NULL AUTO_INCREMENT,
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+	adventure_id INT NOT NULL,
+	question_id INT NOT NULL,
+	CONSTRAINT pk_adventurequestions PRIMARY KEY (id)
+);
+
 CREATE TABLE answers (
 	id INT NOT NULL AUTO_INCREMENT,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
