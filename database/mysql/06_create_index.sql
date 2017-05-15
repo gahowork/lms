@@ -1,3 +1,4 @@
+-- prevent duplicates
 CREATE UNIQUE INDEX ux_adventures ON adventures(description ASC);
 CREATE UNIQUE INDEX ux_adventurequestions ON adventurequestions(adventure_id ASC, question_id ASC);
 CREATE UNIQUE INDEX ux_answers ON answers(description ASC);
