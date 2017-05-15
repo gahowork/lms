@@ -1,3 +1,15 @@
+ALTER TABLE adventurequestions
+ADD
+	CONSTRAINT fk_adventurequestions_adventures
+		FOREIGN KEY (adventure_id)
+		REFERENCES adventures (id);
+
+ALTER TABLE adventurequestions
+ADD
+	CONSTRAINT fk_adventurequestions_questions
+		FOREIGN KEY (question_id)
+		REFERENCES questions (id);
+
 ALTER TABLE answerpictures
 ADD
 	CONSTRAINT fk_answerpictures_answers
