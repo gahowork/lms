@@ -1,3 +1,4 @@
+CREATE UNIQUE INDEX ux_adventures ON adventures(description ASC);
 CREATE UNIQUE INDEX ux_answers ON answers(description ASC);
 CREATE UNIQUE INDEX ux_answerpictures ON answerpictures(answer_id ASC, picture_id ASC);
 CREATE UNIQUE INDEX ux_categories ON categories(description ASC);
