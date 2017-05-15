@@ -1,6 +1,6 @@
 [client]
 user=lms
-password=123User!
+password=123User! #you have to pay attention to change your password
 host=127.0.0.1
 
 [config]
