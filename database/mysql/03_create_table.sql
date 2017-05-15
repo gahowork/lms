@@ -135,7 +135,7 @@ CREATE TABLE usergroups (
 );
 
 delimiter //
-CREATE VIEW getquestion
+CREATE VIEW getrandomquestionid
 AS
 SELECT
 	q.id
