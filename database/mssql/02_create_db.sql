@@ -1,0 +1,2 @@
+IF DB_ID('$(DbName)') IS NULL CREATE DATABASE $(DbName);
+GO
