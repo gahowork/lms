@@ -30,6 +30,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 		<?= $this->Html->css('base.css') ?>
 		<?= $this->Html->css('cake.css') ?>
 		<?= $this->Html->css('bootstrap.css') ?>
+		<?= $this->Html->css('lms.css') ?>
 
 		<?= $this->fetch('meta') ?>
 		<?= $this->fetch('css') ?>
@@ -39,12 +40,35 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 		<nav class="navbar navbar-default navbar-fixed-top">
 			<div class="container-fluid">
 				<div class="navbar-header">
-					<a class="navbar-brand" href="#"><?= $this->fetch('title') ?></a>
+					<?= $this->Html->link(
+						'LMS',
+						['controller'=>'Pages', 'action'=>'Display'],
+						['class'=>'navbar-brand']
+					) ?>
 				</div>
 
+				<ul class="nav navbar-nav">
+					<li>
+						<?= $this->Html->link(
+							'Quiz',
+							['controller'=>'Quizzes', 'action'=>'Index']
+						) ?>
+					</li>
+					<li>
+						<?= $this->Html->link(
+							'Config',
+							['controller'=>'Configs', 'action'=>'Index']
+						) ?>
+					</li>
+				</ul>
+
 				<ul class="nav navbar-nav navbar-right">
-					<li><a target="_blank" href="http://book.cakephp.org/3.0/">Documentation</a></li>
-					<li><a target="_blank" href="http://api.cakephp.org/3.0/">API</a></li>
+					<li>
+						<?= $this->Html->link(
+							'Login',
+							['controller'=>'Users', 'action'=>'Login']
+						) ?>
+					</li>
 				</ul>
 
 			</div>
