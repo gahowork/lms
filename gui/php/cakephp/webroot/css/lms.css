@@ -1,0 +1,21 @@
+
+.config-button {
+	float: left;
+
+	width: 12em;
+
+	margin-right: 1em;
+	margin-bottom: 1em;
+}
+
+.config-button img {
+	width: 10em;
+	height: 8em;
+
+	display: block;
+	margin: auto;
+
+	border-radius: 0.5em;
+
+	box-shadow:inset 0px 0px 3px 1px rgba(0,0,0,.5);
+}
