@@ -133,13 +133,3 @@ CREATE TABLE usergroups (
 	description VARCHAR(50) NOT NULL,
 	CONSTRAINT pk_usergroups PRIMARY KEY (id)
 );
-
-delimiter //
-CREATE VIEW getrandomquestionid
-AS
-SELECT
-	q.id
-FROM questions AS q
-ORDER BY rand()
-LIMIT 1
-//
