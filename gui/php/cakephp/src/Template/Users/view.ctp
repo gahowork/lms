@@ -3,66 +3,52 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit User'), ['action' => 'edit', $user->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete User'), ['action' => 'delete', $user->id], ['confirm' => __('Are you sure you want to delete # {0}?', $user->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Users'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New User'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Usergroups'), ['controller' => 'Usergroups', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Usergroup'), ['controller' => 'Usergroups', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Games'), ['controller' => 'Games', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Game'), ['controller' => 'Games', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="users view large-9 medium-8 columns content">
-    <h3><?= h($user->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Email') ?></th>
-            <td><?= h($user->email) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Password') ?></th>
-            <td><?= h($user->password) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Usergroup') ?></th>
-            <td><?= $user->has('usergroup') ? $this->Html->link($user->usergroup->id, ['controller' => 'Usergroups', 'action' => 'view', $user->usergroup->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($user->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($user->created) ?></td>
-        </tr>
-    </table>
-    <div class="related">
-        <h4><?= __('Related Games') ?></h4>
-        <?php if (!empty($user->games)): ?>
-        <table cellpadding="0" cellspacing="0">
-            <tr>
-                <th scope="col"><?= __('Id') ?></th>
-                <th scope="col"><?= __('Created') ?></th>
-                <th scope="col"><?= __('User Id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-            <?php foreach ($user->games as $games): ?>
-            <tr>
-                <td><?= h($games->id) ?></td>
-                <td><?= h($games->created) ?></td>
-                <td><?= h($games->user_id) ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['controller' => 'Games', 'action' => 'view', $games->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['controller' => 'Games', 'action' => 'edit', $games->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['controller' => 'Games', 'action' => 'delete', $games->id], ['confirm' => __('Are you sure you want to delete # {0}?', $games->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </table>
-        <?php endif; ?>
-    </div>
+
+<div class="users panel panel-default">
+	<nav class="panel-heading navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand"><?= __('View User') ?></div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
+				<li><?= $this->Html->link(__('Edit'), ['action' => 'edit', $user->id], ['class'=>'btn btn-default']) ?></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<?= $this->Form->create($user, ['type'=>'post', 'url'=>['action'=>'delete']]) ?>
+					<?= $this->Form->hidden('id') ?>
+					<?= $this->Form->button(__('Delete'),['class'=>'btn btn-warning']) ?>
+					<?= $this->Form->end() ?>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="panel-body">
+		<fieldset>
+			<div class="form-group">
+				<label for="userid">ID</label>
+				<div class="form-control" id="userid"><?= $this->Number->format($user->id) ?></div>
+			</div>
+			<div class="form-group">
+				<label for="userid">Created</label>
+				<div class="form-control" id="userid"><?= h($user->created) ?></div>
+			</div>
+			<hr/>
+			<div class="form-group">
+				<label for="useremail"><?= __('Email') ?></label>
+				<div class="form-control" id="useremail"><?= h($user->email) ?></div>
+			</div>
+			<div class="form-group">
+				<label for="userpassword"><?= __('Password') ?></label>
+				<div class="form-control" id="userpassword"><?= h($user->password) ?></div>
+			</div>
+			<div class="form-group">
+				<label for="userusergroup_id"><?= __('Usergroup') ?></label>
+				<?= $user->has('usergroup') ? $this->Html->link($user->usergroup->description . ' <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Usergroups', 'action' => 'view', $user->usergroup->id], ['class'=>'btn btn-info', 'id'=>'userusergroup_id', 'escape'=>false]) : '' ?>
+			</div>
+
+	</fieldset>
+	</div>
 </div>

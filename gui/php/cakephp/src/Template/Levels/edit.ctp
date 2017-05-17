@@ -3,33 +3,32 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Form->postLink(
-                __('Delete'),
-                ['action' => 'delete', $level->id],
-                ['confirm' => __('Are you sure you want to delete # {0}?', $level->id)]
-            )
-        ?></li>
-        <li><?= $this->Html->link(__('List Levels'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Pictures'), ['controller' => 'Pictures', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Picture'), ['controller' => 'Pictures', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Questionlevels'), ['controller' => 'Questionlevels', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Questionlevel'), ['controller' => 'Questionlevels', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="levels form large-9 medium-8 columns content">
-    <?= $this->Form->create($level) ?>
-    <fieldset>
-        <legend><?= __('Edit Level') ?></legend>
-        <?php
-            echo $this->Form->input('description');
-            echo $this->Form->input('picture_id', ['options' => $pictures]);
-            echo $this->Form->input('levelpoints');
-            echo $this->Form->input('leveltarget');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+
+<div class="levels panel panel-default">
+	<nav class="panel-heading navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand"><?= __('Edit Level') ?></div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
+				<li><?= $this->Html->link(__('View'), ['action' => 'view', $level->id ], ['class'=>'btn btn-default']) ?></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="panel-body">
+
+	    <?= $this->Form->create($level) ?>
+	    <fieldset>
+	        <?php
+	            echo $this->Form->input('description',['class'=>'form-control']);
+	            echo $this->Form->input('picture_id', ['class'=>'form-control'], ['options' => $pictures]);
+	            echo $this->Form->input('levelpoints',['class'=>'form-control']);
+	            echo $this->Form->input('leveltarget',['class'=>'form-control']);
+	        ?>
+	    </fieldset>
+	    <?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>
+	    <?= $this->Form->end() ?>
+	</div>
 </div>

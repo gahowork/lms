@@ -3,28 +3,28 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Pictures'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Answerpictures'), ['controller' => 'Answerpictures', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Answerpicture'), ['controller' => 'Answerpictures', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Categories'), ['controller' => 'Categories', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Category'), ['controller' => 'Categories', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Levels'), ['controller' => 'Levels', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Level'), ['controller' => 'Levels', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Questionpictures'), ['controller' => 'Questionpictures', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Questionpicture'), ['controller' => 'Questionpictures', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="pictures form large-9 medium-8 columns content">
-    <?= $this->Form->create($picture) ?>
-    <fieldset>
-        <legend><?= __('Add Picture') ?></legend>
-        <?php
-            echo $this->Form->input('description');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+
+<div class="pictures panel panel-default">
+	<nav class="panel-heading navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand"><?= __('Add Picture') ?></div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="panel-body">
+
+	    <?= $this->Form->create($picture) ?>
+	    <fieldset>
+	        <?php
+	            echo $this->Form->input('description',['class'=>'form-control']);
+	        ?>
+	    </fieldset>
+	    <?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>
+	    <?= $this->Form->end() ?>
+	</div>
 </div>

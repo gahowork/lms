@@ -3,37 +3,48 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Questionlevel'), ['action' => 'edit', $questionlevel->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Questionlevel'), ['action' => 'delete', $questionlevel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $questionlevel->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Questionlevels'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Questionlevel'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Levels'), ['controller' => 'Levels', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Level'), ['controller' => 'Levels', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="questionlevels view large-9 medium-8 columns content">
-    <h3><?= h($questionlevel->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Question') ?></th>
-            <td><?= $questionlevel->has('question') ? $this->Html->link($questionlevel->question->id, ['controller' => 'Questions', 'action' => 'view', $questionlevel->question->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Level') ?></th>
-            <td><?= $questionlevel->has('level') ? $this->Html->link($questionlevel->level->id, ['controller' => 'Levels', 'action' => 'view', $questionlevel->level->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($questionlevel->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($questionlevel->created) ?></td>
-        </tr>
-    </table>
+
+<div class="questionlevels panel panel-default">
+	<nav class="panel-heading navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand"><?= __('View Questionlevel') ?></div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
+				<li><?= $this->Html->link(__('Edit'), ['action' => 'edit', $questionlevel->id], ['class'=>'btn btn-default']) ?></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<?= $this->Form->create($questionlevel, ['type'=>'post', 'url'=>['action'=>'delete']]) ?>
+					<?= $this->Form->hidden('id') ?>
+					<?= $this->Form->button(__('Delete'),['class'=>'btn btn-warning']) ?>
+					<?= $this->Form->end() ?>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="panel-body">
+		<fieldset>
+			<div class="form-group">
+				<label for="questionlevelid">ID</label>
+				<div class="form-control" id="questionlevelid"><?= $this->Number->format($questionlevel->id) ?></div>
+			</div>
+			<div class="form-group">
+				<label for="questionlevelid">Created</label>
+				<div class="form-control" id="questionlevelid"><?= h($questionlevel->created) ?></div>
+			</div>
+			<hr/>
+			<div class="form-group">
+				<label for="questionlevelquestion_id"><?= __('Question') ?></label>
+				<?= $questionlevel->has('question') ? $this->Html->link($questionlevel->question->header . ' <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Questions', 'action' => 'view', $questionlevel->question->id], ['class'=>'btn btn-info', 'id'=>'questionlevelquestion_id', 'escape'=>false]) : '' ?>
+			</div>
+			<div class="form-group">
+				<label for="questionlevellevel_id"><?= __('Level') ?></label>
+				<?= $questionlevel->has('level') ? $this->Html->link($questionlevel->level->description . ' <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Levels', 'action' => 'view', $questionlevel->level->id], ['class'=>'btn btn-info', 'id'=>'questionlevellevel_id', 'escape'=>false]) : '' ?>
+			</div>
+
+	</fieldset>
+	</div>
 </div>

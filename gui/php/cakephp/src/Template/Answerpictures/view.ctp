@@ -3,37 +3,48 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Answerpicture'), ['action' => 'edit', $answerpicture->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Answerpicture'), ['action' => 'delete', $answerpicture->id], ['confirm' => __('Are you sure you want to delete # {0}?', $answerpicture->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Answerpictures'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Answerpicture'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Answers'), ['controller' => 'Answers', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Answer'), ['controller' => 'Answers', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Pictures'), ['controller' => 'Pictures', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Picture'), ['controller' => 'Pictures', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="answerpictures view large-9 medium-8 columns content">
-    <h3><?= h($answerpicture->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Answer') ?></th>
-            <td><?= $answerpicture->has('answer') ? $this->Html->link($answerpicture->answer->id, ['controller' => 'Answers', 'action' => 'view', $answerpicture->answer->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Picture') ?></th>
-            <td><?= $answerpicture->has('picture') ? $this->Html->link($answerpicture->picture->id, ['controller' => 'Pictures', 'action' => 'view', $answerpicture->picture->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($answerpicture->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($answerpicture->created) ?></td>
-        </tr>
-    </table>
+
+<div class="answerpictures panel panel-default">
+	<nav class="panel-heading navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand"><?= __('View Answerpicture') ?></div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
+				<li><?= $this->Html->link(__('Edit'), ['action' => 'edit', $answerpicture->id], ['class'=>'btn btn-default']) ?></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<?= $this->Form->create($answerpicture, ['type'=>'post', 'url'=>['action'=>'delete']]) ?>
+					<?= $this->Form->hidden('id') ?>
+					<?= $this->Form->button(__('Delete'),['class'=>'btn btn-warning']) ?>
+					<?= $this->Form->end() ?>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="panel-body">
+		<fieldset>
+			<div class="form-group">
+				<label for="answerpictureid">ID</label>
+				<div class="form-control" id="answerpictureid"><?= $this->Number->format($answerpicture->id) ?></div>
+			</div>
+			<div class="form-group">
+				<label for="answerpictureid">Created</label>
+				<div class="form-control" id="answerpictureid"><?= h($answerpicture->created) ?></div>
+			</div>
+			<hr/>
+			<div class="form-group">
+				<label for="answerpictureanswer_id"><?= __('Answer') ?></label>
+				<?= $answerpicture->has('answer') ? $this->Html->link($answerpicture->answer->description . ' <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Answers', 'action' => 'view', $answerpicture->answer->id], ['class'=>'btn btn-info', 'id'=>'answerpictureanswer_id', 'escape'=>false]) : '' ?>
+			</div>
+			<div class="form-group">
+				<label for="answerpicturepicture_id"><?= __('Picture') ?></label>
+				<?= $answerpicture->has('picture') ? $this->Html->link($answerpicture->picture->description . ' <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Pictures', 'action' => 'view', $answerpicture->picture->id], ['class'=>'btn btn-info', 'id'=>'answerpicturepicture_id', 'escape'=>false]) : '' ?>
+			</div>
+
+	</fieldset>
+	</div>
 </div>

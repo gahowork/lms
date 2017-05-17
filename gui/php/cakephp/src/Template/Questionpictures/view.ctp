@@ -3,37 +3,48 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('Edit Questionpicture'), ['action' => 'edit', $questionpicture->id]) ?> </li>
-        <li><?= $this->Form->postLink(__('Delete Questionpicture'), ['action' => 'delete', $questionpicture->id], ['confirm' => __('Are you sure you want to delete # {0}?', $questionpicture->id)]) ?> </li>
-        <li><?= $this->Html->link(__('List Questionpictures'), ['action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Questionpicture'), ['action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?> </li>
-        <li><?= $this->Html->link(__('List Pictures'), ['controller' => 'Pictures', 'action' => 'index']) ?> </li>
-        <li><?= $this->Html->link(__('New Picture'), ['controller' => 'Pictures', 'action' => 'add']) ?> </li>
-    </ul>
-</nav>
-<div class="questionpictures view large-9 medium-8 columns content">
-    <h3><?= h($questionpicture->id) ?></h3>
-    <table class="vertical-table">
-        <tr>
-            <th scope="row"><?= __('Question') ?></th>
-            <td><?= $questionpicture->has('question') ? $this->Html->link($questionpicture->question->id, ['controller' => 'Questions', 'action' => 'view', $questionpicture->question->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Picture') ?></th>
-            <td><?= $questionpicture->has('picture') ? $this->Html->link($questionpicture->picture->id, ['controller' => 'Pictures', 'action' => 'view', $questionpicture->picture->id]) : '' ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Id') ?></th>
-            <td><?= $this->Number->format($questionpicture->id) ?></td>
-        </tr>
-        <tr>
-            <th scope="row"><?= __('Created') ?></th>
-            <td><?= h($questionpicture->created) ?></td>
-        </tr>
-    </table>
+
+<div class="questionpictures panel panel-default">
+	<nav class="panel-heading navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand"><?= __('View Questionpicture') ?></div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
+				<li><?= $this->Html->link(__('Edit'), ['action' => 'edit', $questionpicture->id], ['class'=>'btn btn-default']) ?></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+				<li>
+					<?= $this->Form->create($questionpicture, ['type'=>'post', 'url'=>['action'=>'delete']]) ?>
+					<?= $this->Form->hidden('id') ?>
+					<?= $this->Form->button(__('Delete'),['class'=>'btn btn-warning']) ?>
+					<?= $this->Form->end() ?>
+				</li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="panel-body">
+		<fieldset>
+			<div class="form-group">
+				<label for="questionpictureid">ID</label>
+				<div class="form-control" id="questionpictureid"><?= $this->Number->format($questionpicture->id) ?></div>
+			</div>
+			<div class="form-group">
+				<label for="questionpictureid">Created</label>
+				<div class="form-control" id="questionpictureid"><?= h($questionpicture->created) ?></div>
+			</div>
+			<hr/>
+			<div class="form-group">
+				<label for="questionpicturequestion_id"><?= __('Question') ?></label>
+				<?= $questionpicture->has('question') ? $this->Html->link($questionpicture->question->header . ' <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Questions', 'action' => 'view', $questionpicture->question->id], ['class'=>'btn btn-info', 'id'=>'questionpicturequestion_id', 'escape'=>false]) : '' ?>
+			</div>
+			<div class="form-group">
+				<label for="questionpicturepicture_id"><?= __('Picture') ?></label>
+				<?= $questionpicture->has('picture') ? $this->Html->link($questionpicture->picture->description . ' <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Pictures', 'action' => 'view', $questionpicture->picture->id], ['class'=>'btn btn-info', 'id'=>'questionpicturepicture_id', 'escape'=>false]) : '' ?>
+			</div>
+
+	</fieldset>
+	</div>
 </div>

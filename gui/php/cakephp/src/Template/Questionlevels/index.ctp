@@ -3,52 +3,55 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('New Questionlevel'), ['action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Questions'), ['controller' => 'Questions', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Question'), ['controller' => 'Questions', 'action' => 'add']) ?></li>
-        <li><?= $this->Html->link(__('List Levels'), ['controller' => 'Levels', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New Level'), ['controller' => 'Levels', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="questionlevels index large-9 medium-8 columns content">
-    <h3><?= __('Questionlevels') ?></h3>
-    <table cellpadding="0" cellspacing="0">
-        <thead>
-            <tr>
-                <th scope="col"><?= $this->Paginator->sort('id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('created') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
-                <th scope="col"><?= $this->Paginator->sort('level_id') ?></th>
-                <th scope="col" class="actions"><?= __('Actions') ?></th>
-            </tr>
-        </thead>
-        <tbody>
-            <?php foreach ($questionlevels as $questionlevel): ?>
-            <tr>
-                <td><?= $this->Number->format($questionlevel->id) ?></td>
-                <td><?= h($questionlevel->created) ?></td>
-                <td><?= $questionlevel->has('question') ? $this->Html->link($questionlevel->question->id, ['controller' => 'Questions', 'action' => 'view', $questionlevel->question->id]) : '' ?></td>
-                <td><?= $questionlevel->has('level') ? $this->Html->link($questionlevel->level->id, ['controller' => 'Levels', 'action' => 'view', $questionlevel->level->id]) : '' ?></td>
-                <td class="actions">
-                    <?= $this->Html->link(__('View'), ['action' => 'view', $questionlevel->id]) ?>
-                    <?= $this->Html->link(__('Edit'), ['action' => 'edit', $questionlevel->id]) ?>
-                    <?= $this->Form->postLink(__('Delete'), ['action' => 'delete', $questionlevel->id], ['confirm' => __('Are you sure you want to delete # {0}?', $questionlevel->id)]) ?>
-                </td>
-            </tr>
-            <?php endforeach; ?>
-        </tbody>
-    </table>
-    <div class="paginator">
-        <ul class="pagination">
-            <?= $this->Paginator->first('<< ' . __('first')) ?>
-            <?= $this->Paginator->prev('< ' . __('previous')) ?>
-            <?= $this->Paginator->numbers() ?>
-            <?= $this->Paginator->next(__('next') . ' >') ?>
-            <?= $this->Paginator->last(__('last') . ' >>') ?>
-        </ul>
-        <p><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></p>
-    </div>
+<div class="questionlevels panel panel-default">
+	<nav class="panel-heading navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand"><?= __('Questionlevels') ?></div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><?= $this->Html->link(__('Add'), ['action' => 'add'], ['class'=>'btn btn-default']) ?></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="panel-body">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
+					<th scope="col"><?= $this->Paginator->sort('level_id') ?></th>
+					<th scope="col" class="actions"><?= __('Actions') ?></th>
+				</tr>
+			</thead>
+
+			<tbody>
+				<?php foreach ($questionlevels as $questionlevel): ?>
+					<tr>
+						<td><?= $this->Number->format($questionlevel->id) ?></td>
+						<td><?= h($questionlevel->created) ?></td>
+						<td><?= $questionlevel->has('question') ? $this->Html->link($questionlevel->question->header, ['controller' => 'Questions', 'action' => 'view', $questionlevel->question->id]) : '' ?></td>
+						<td><?= $questionlevel->has('level') ? $this->Html->link($questionlevel->level->description, ['controller' => 'Levels', 'action' => 'view', $questionlevel->level->id]) : '' ?></td>
+						<td class="actions">
+							<?= $this->Html->link(__('View'), ['action' => 'view', $questionlevel->id], ['class'=>'btn btn-info']) ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+			</tbody>
+		</table>
+	</div>
+
+	<div class="panel-footer text-center">
+		<ul class="pagination">
+			<?= $this->Paginator->first('<< ' . __('first')) ?>
+			<?= $this->Paginator->prev('< ' . __('previous')) ?>
+			<?= $this->Paginator->numbers() ?>
+			<?= $this->Paginator->next(__('next') . ' >') ?>
+			<?= $this->Paginator->last(__('last') . ' >>') ?>
+		</ul>
+		<div><?= $this->Paginator->counter(['format' => __('Page {{page}} of {{pages}}, showing {{current}} record(s) out of {{count}} total')]) ?></div>
+
+	</div>
 </div>

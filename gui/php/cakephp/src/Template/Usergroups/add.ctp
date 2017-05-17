@@ -3,22 +3,28 @@
   * @var \App\View\AppView $this
   */
 ?>
-<nav class="large-3 medium-4 columns" id="actions-sidebar">
-    <ul class="side-nav">
-        <li class="heading"><?= __('Actions') ?></li>
-        <li><?= $this->Html->link(__('List Usergroups'), ['action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('List Users'), ['controller' => 'Users', 'action' => 'index']) ?></li>
-        <li><?= $this->Html->link(__('New User'), ['controller' => 'Users', 'action' => 'add']) ?></li>
-    </ul>
-</nav>
-<div class="usergroups form large-9 medium-8 columns content">
-    <?= $this->Form->create($usergroup) ?>
-    <fieldset>
-        <legend><?= __('Add Usergroup') ?></legend>
-        <?php
-            echo $this->Form->input('description');
-        ?>
-    </fieldset>
-    <?= $this->Form->button(__('Submit')) ?>
-    <?= $this->Form->end() ?>
+
+<div class="usergroups panel panel-default">
+	<nav class="panel-heading navbar navbar-default">
+		<div class="container-fluid">
+			<div class="navbar-header">
+				<div class="navbar-brand"><?= __('Add Usergroup') ?></div>
+			</div>
+			<ul class="nav navbar-nav">
+				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
+			</ul>
+		</div>
+	</nav>
+
+	<div class="panel-body">
+
+	    <?= $this->Form->create($usergroup) ?>
+	    <fieldset>
+	        <?php
+	            echo $this->Form->input('description',['class'=>'form-control']);
+	        ?>
+	    </fieldset>
+	    <?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>
+	    <?= $this->Form->end() ?>
+	</div>
 </div>
