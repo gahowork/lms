@@ -19,3 +19,15 @@
 
 	box-shadow:inset 0px 0px 3px 1px rgba(0,0,0,.5);
 }
+
+.glyphicon {
+	font-size: 1.5em;
+}
+
+.panel nav li .btn {
+	margin-right: 0.5em;
+}
+
+.panel nav li:last-child .btn {
+	margin-right: 0em;
+}
