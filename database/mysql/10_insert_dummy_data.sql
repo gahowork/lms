@@ -17,15 +17,21 @@ INSERT INTO questiontypes(id, description) VALUES (1, 'Text');
 INSERT INTO questiontypes(id, description) VALUES (2, 'Picture');
 INSERT INTO questiontypes(id, description) VALUES (3, 'Text and Picture');
 
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(1, 'Question 1', 'Select one', 1);
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(2, 'Question 2', 'Select one', 1);
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(3, 'Question 3', 'Select one', 1);
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(4, 'Question 4', 'Select one', 1);
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(5, 'Question 5', 'Select one', 1);
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(6, 'Question 6', 'Select one', 1);
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(7, 'Question 7', 'Select one', 1);
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(8, 'Question 8', 'Select one', 1);
-INSERT INTO questions(id, header, description, questiontype_id) VALUES(9, 'How deep the rabbit hole gooes', 'Select one', 1);
+delimiter //
+CREATE PROCEDURE generatequestions(maxcount INT)
+BEGIN
+	DECLARE loop_c INT DEFAULT 1;
+
+	WHILE loop_c <= maxcount DO
+		INSERT INTO questions(id, header, description, questiontype_id) VALUES(loop_c, CONCAT('Question ', loop_c), 'Select one', 1);
+		SET loop_c = loop_c + 1;
+	END WHILE;
+END;
+//
+CALL generatequestions(300);
+DROP PROCEDURE generatequestions;
+
+INSERT INTO questions(id, header, description, questiontype_id) VALUES(301, 'How deep the rabbit hole gooes', 'Select one', 1);
 
 INSERT INTO answers(id, description) VALUES (1, 'Answer 1');
 INSERT INTO answers(id, description) VALUES (2, 'Answer 2');
@@ -54,6 +60,11 @@ INSERT INTO questionanswers(question_id, answer_id, result) VALUES(3, 5, 1);
 INSERT INTO questionanswers(question_id, answer_id, result) VALUES(3, 6, 1);
 INSERT INTO questionanswers(question_id, answer_id, result) VALUES(3, 7, 0);
 INSERT INTO questionanswers(question_id, answer_id, result) VALUES(3, 8, 1);
+
+INSERT INTO questionanswers(question_id, answer_id, result) VALUES(301, 9, 0);
+INSERT INTO questionanswers(question_id, answer_id, result) VALUES(301, 10, 0);
+INSERT INTO questionanswers(question_id, answer_id, result) VALUES(301, 11, 1);
+INSERT INTO questionanswers(question_id, answer_id, result) VALUES(301, 12, 0);
 
 INSERT INTO questioncategories(question_id, category_id) VALUES(1, 1);
 INSERT INTO questioncategories(question_id, category_id) VALUES(2, 1);
