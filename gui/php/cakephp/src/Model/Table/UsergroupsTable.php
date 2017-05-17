@@ -35,7 +35,7 @@ class UsergroupsTable extends Table
         parent::initialize($config);
 
         $this->table('usergroups');
-        $this->displayField('id');
+        $this->displayField('description');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');

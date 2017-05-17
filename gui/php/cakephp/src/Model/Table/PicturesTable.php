@@ -38,7 +38,7 @@ class PicturesTable extends Table
         parent::initialize($config);
 
         $this->table('pictures');
-        $this->displayField('id');
+        $this->displayField('description');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');

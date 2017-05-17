@@ -40,7 +40,7 @@ class QuestionsTable extends Table
         parent::initialize($config);
 
         $this->table('questions');
-        $this->displayField('id');
+        $this->displayField('header');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');

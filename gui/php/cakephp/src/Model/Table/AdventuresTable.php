@@ -35,7 +35,7 @@ class AdventuresTable extends Table
         parent::initialize($config);
 
         $this->table('adventures');
-        $this->displayField('id');
+        $this->displayField('description');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
