@@ -83,7 +83,7 @@ CREATE TABLE questionanswers (
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
 	question_id INT NOT NULL,
 	answer_id INT NOT NULL,
-	result BIT NOT NULL,
+	result INT NOT NULL,
 	CONSTRAINT pk_questionanswers PRIMARY KEY (id)
 );
 
