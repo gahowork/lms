@@ -11,20 +11,20 @@
 				<div class="navbar-brand"><?= __('Add Game') ?></div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-th-list"></span>', ['action' => 'index'], ['class'=>'btn btn-info navbar-btn', 'escape'=>false]) ?></div></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="panel-body">
 
-	    <?= $this->Form->create($game) ?>
-	    <fieldset>
-	        <?php
-	            echo $this->Form->input('user_id', ['class'=>'form-control'], ['options' => $users]);
-	        ?>
-	    </fieldset>
-	    <?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>
-	    <?= $this->Form->end() ?>
+		<?= $this->Form->create($game) ?>
+		<fieldset>
+			<?php
+						echo $this->Form->input('user_id', ['class'=>'form-control'], ['options' => $users]);
+			?>
+		</fieldset>
+		<?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>
+		<?= $this->Form->end() ?>
 	</div>
 </div>

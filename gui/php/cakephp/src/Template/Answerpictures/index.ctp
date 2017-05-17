@@ -10,12 +10,13 @@
 				<div class="navbar-brand"><?= __('Answerpictures') ?></div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><?= $this->Html->link(__('Add'), ['action' => 'add'], ['class'=>'btn btn-default']) ?></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>', ['action' => 'add'], ['class'=>'btn btn-success navbar-btn', 'escape'=>false]) ?></div></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="panel-body">
+		<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -23,7 +24,7 @@
 					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('answer_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('picture_id') ?></th>
-					<th scope="col" class="actions"><?= __('Actions') ?></th>
+					<th scope="col" class="actions"></th>
 				</tr>
 			</thead>
 
@@ -35,12 +36,13 @@
 						<td><?= $answerpicture->has('answer') ? $this->Html->link($answerpicture->answer->description, ['controller' => 'Answers', 'action' => 'view', $answerpicture->answer->id]) : '' ?></td>
 						<td><?= $answerpicture->has('picture') ? $this->Html->link($answerpicture->picture->description, ['controller' => 'Pictures', 'action' => 'view', $answerpicture->picture->id]) : '' ?></td>
 						<td class="actions">
-							<?= $this->Html->link(__('View'), ['action' => 'view', $answerpicture->id], ['class'=>'btn btn-info']) ?>
+							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $answerpicture->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+	</div>
 	</div>
 
 	<div class="panel-footer text-center">

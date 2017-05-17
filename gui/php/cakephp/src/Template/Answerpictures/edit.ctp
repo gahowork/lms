@@ -11,22 +11,22 @@
 				<div class="navbar-brand"><?= __('Edit Answerpicture') ?></div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
-				<li><?= $this->Html->link(__('View'), ['action' => 'view', $answerpicture->id ], ['class'=>'btn btn-default']) ?></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-th-list"></span>', ['action' => 'index'], ['class'=>'btn btn-info navbar-btn', 'escape'=>false]) ?></div></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $answerpicture->id ], ['class'=>'btn btn-success navbar-btn', 'escape'=>false]) ?></div></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="panel-body">
 
-	    <?= $this->Form->create($answerpicture) ?>
-	    <fieldset>
-	        <?php
-	            echo $this->Form->input('answer_id', ['class'=>'form-control'], ['options' => $answers]);
-	            echo $this->Form->input('picture_id', ['class'=>'form-control'], ['options' => $pictures]);
-	        ?>
-	    </fieldset>
-	    <?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>
-	    <?= $this->Form->end() ?>
+		<?= $this->Form->create($answerpicture) ?>
+		<fieldset>
+			<?php
+						echo $this->Form->input('answer_id', ['class'=>'form-control'], ['options' => $answers]);
+						echo $this->Form->input('picture_id', ['class'=>'form-control'], ['options' => $pictures]);
+			?>
+		</fieldset>
+		<?= $this->Form->button(__('Submit'),['class'=>'btn btn-warning form-control']) ?>
+		<?= $this->Form->end() ?>
 	</div>
 </div>

@@ -11,23 +11,23 @@
 				<div class="navbar-brand"><?= __('Edit User') ?></div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><?= $this->Html->link(__('Index'), ['action' => 'index'], ['class'=>'btn btn-default']) ?></li>
-				<li><?= $this->Html->link(__('View'), ['action' => 'view', $user->id ], ['class'=>'btn btn-default']) ?></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-th-list"></span>', ['action' => 'index'], ['class'=>'btn btn-info navbar-btn', 'escape'=>false]) ?></div></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $user->id ], ['class'=>'btn btn-success navbar-btn', 'escape'=>false]) ?></div></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="panel-body">
 
-	    <?= $this->Form->create($user) ?>
-	    <fieldset>
-	        <?php
-	            echo $this->Form->input('email',['class'=>'form-control']);
-	            echo $this->Form->input('password',['class'=>'form-control']);
-	            echo $this->Form->input('usergroup_id', ['class'=>'form-control'], ['options' => $usergroups]);
-	        ?>
-	    </fieldset>
-	    <?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>
-	    <?= $this->Form->end() ?>
+		<?= $this->Form->create($user) ?>
+		<fieldset>
+			<?php
+						echo $this->Form->input('email',['class'=>'form-control']);
+						echo $this->Form->input('password',['class'=>'form-control']);
+						echo $this->Form->input('usergroup_id', ['class'=>'form-control'], ['options' => $usergroups]);
+			?>
+		</fieldset>
+		<?= $this->Form->button(__('Submit'),['class'=>'btn btn-warning form-control']) ?>
+		<?= $this->Form->end() ?>
 	</div>
 </div>

@@ -10,12 +10,13 @@
 				<div class="navbar-brand"><?= __('Questionlevels') ?></div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><?= $this->Html->link(__('Add'), ['action' => 'add'], ['class'=>'btn btn-default']) ?></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>', ['action' => 'add'], ['class'=>'btn btn-success navbar-btn', 'escape'=>false]) ?></div></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="panel-body">
+		<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -23,7 +24,7 @@
 					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('level_id') ?></th>
-					<th scope="col" class="actions"><?= __('Actions') ?></th>
+					<th scope="col" class="actions"></th>
 				</tr>
 			</thead>
 
@@ -35,12 +36,13 @@
 						<td><?= $questionlevel->has('question') ? $this->Html->link($questionlevel->question->header, ['controller' => 'Questions', 'action' => 'view', $questionlevel->question->id]) : '' ?></td>
 						<td><?= $questionlevel->has('level') ? $this->Html->link($questionlevel->level->description, ['controller' => 'Levels', 'action' => 'view', $questionlevel->level->id]) : '' ?></td>
 						<td class="actions">
-							<?= $this->Html->link(__('View'), ['action' => 'view', $questionlevel->id], ['class'=>'btn btn-info']) ?>
+							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $questionlevel->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+	</div>
 	</div>
 
 	<div class="panel-footer text-center">

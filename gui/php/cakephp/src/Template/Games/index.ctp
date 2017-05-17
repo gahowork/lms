@@ -10,19 +10,20 @@
 				<div class="navbar-brand"><?= __('Games') ?></div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><?= $this->Html->link(__('Add'), ['action' => 'add'], ['class'=>'btn btn-default']) ?></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>', ['action' => 'add'], ['class'=>'btn btn-success navbar-btn', 'escape'=>false]) ?></div></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="panel-body">
+		<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
 				<tr>
 					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
-					<th scope="col" class="actions"><?= __('Actions') ?></th>
+					<th scope="col" class="actions"></th>
 				</tr>
 			</thead>
 
@@ -33,12 +34,13 @@
 						<td><?= h($game->created) ?></td>
 						<td><?= $game->has('user') ? $this->Html->link($game->user->email, ['controller' => 'Users', 'action' => 'view', $game->user->id]) : '' ?></td>
 						<td class="actions">
-							<?= $this->Html->link(__('View'), ['action' => 'view', $game->id], ['class'=>'btn btn-info']) ?>
+							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $game->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+	</div>
 	</div>
 
 	<div class="panel-footer text-center">

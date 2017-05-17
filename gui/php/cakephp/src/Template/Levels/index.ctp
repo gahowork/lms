@@ -10,12 +10,13 @@
 				<div class="navbar-brand"><?= __('Levels') ?></div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><?= $this->Html->link(__('Add'), ['action' => 'add'], ['class'=>'btn btn-default']) ?></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>', ['action' => 'add'], ['class'=>'btn btn-success navbar-btn', 'escape'=>false]) ?></div></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="panel-body">
+		<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -25,7 +26,7 @@
 					<th scope="col"><?= $this->Paginator->sort('picture_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('levelpoints') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('leveltarget') ?></th>
-					<th scope="col" class="actions"><?= __('Actions') ?></th>
+					<th scope="col" class="actions"></th>
 				</tr>
 			</thead>
 
@@ -39,12 +40,13 @@
 						<td><?= $this->Number->format($level->levelpoints) ?></td>
 						<td><?= $this->Number->format($level->leveltarget) ?></td>
 						<td class="actions">
-							<?= $this->Html->link(__('View'), ['action' => 'view', $level->id], ['class'=>'btn btn-info']) ?>
+							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $level->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+	</div>
 	</div>
 
 	<div class="panel-footer text-center">

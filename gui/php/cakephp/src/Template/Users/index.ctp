@@ -10,12 +10,13 @@
 				<div class="navbar-brand"><?= __('Users') ?></div>
 			</div>
 			<ul class="nav navbar-nav">
-				<li><?= $this->Html->link(__('Add'), ['action' => 'add'], ['class'=>'btn btn-default']) ?></li>
+				<li><div><?= $this->Html->link('<span class="glyphicon glyphicon-plus-sign"></span>', ['action' => 'add'], ['class'=>'btn btn-success navbar-btn', 'escape'=>false]) ?></div></li>
 			</ul>
 		</div>
 	</nav>
 
 	<div class="panel-body">
+		<div class="table-responsive">
 		<table class="table table-hover">
 			<thead>
 				<tr>
@@ -24,7 +25,7 @@
 					<th scope="col"><?= $this->Paginator->sort('email') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('password') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('usergroup_id') ?></th>
-					<th scope="col" class="actions"><?= __('Actions') ?></th>
+					<th scope="col" class="actions"></th>
 				</tr>
 			</thead>
 
@@ -37,12 +38,13 @@
 						<td><?= h($user->password) ?></td>
 						<td><?= $user->has('usergroup') ? $this->Html->link($user->usergroup->description, ['controller' => 'Usergroups', 'action' => 'view', $user->usergroup->id]) : '' ?></td>
 						<td class="actions">
-							<?= $this->Html->link(__('View'), ['action' => 'view', $user->id], ['class'=>'btn btn-info']) ?>
+							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $user->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 						</td>
 					</tr>
 				<?php endforeach; ?>
 			</tbody>
 		</table>
+	</div>
 	</div>
 
 	<div class="panel-footer text-center">
