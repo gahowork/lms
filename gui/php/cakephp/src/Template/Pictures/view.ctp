@@ -18,7 +18,7 @@
 				<li>
 					<?= $this->Form->create($picture, ['type'=>'post', 'url'=>['action'=>'delete']]) ?>
 					<?= $this->Form->hidden('id') ?>
-					<?= $this->Form->button(__('Delete'),['class'=>'btn btn-warning']) ?>
+					<?= $this->Form->button(__('Delete'),['class'=>'btn btn-warning navbar-btn']) ?>
 					<?= $this->Form->end() ?>
 				</li>
 			</ul>
