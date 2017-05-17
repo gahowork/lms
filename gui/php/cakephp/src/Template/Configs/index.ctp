@@ -1,7 +1,7 @@
 
 <div class="panel panel-warning">
 	<div class="panel-heading">Configuration</div>
-	<div class="panel-body row">
+	<div class="panel-body">
 
 		<div class="panel panel-default config-button">
 			<div class="panel-body">
