@@ -54,3 +54,4 @@
 </div>
 
 <?= $this->element('ModifyTable/questionanswer_table') ?>
+<?= $this->element('ModifyTable/questioncategory_table') ?>
