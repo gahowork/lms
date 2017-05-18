@@ -17,7 +17,7 @@
 					<tr>
 						<th><?= __('Description') ?></th>
 						<th><?= __('Result') ?></th>
-						<th><?= __('Action') ?></th>
+						<th class="actions"></th>
 					</tr>
 				</thead>
 				<tbody>
@@ -25,7 +25,7 @@
 						<tr>
 							<td><?= h($singleanswer->answer->description) ?></td>
 							<td><?= h($singleanswer->result) ?></td>
-							<td>
+							<td class="actions">
 								<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['controller'=>'questionanswers','action' => 'viewbyquestion', $singleanswer->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 							</td>
 						</tr>
