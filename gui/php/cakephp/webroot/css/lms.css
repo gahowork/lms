@@ -31,3 +31,8 @@
 .panel nav li:last-child .btn {
 	margin-right: 0em;
 }
+
+.panel table tr th.actions,
+.panel table tr td.actions {
+	width: 3em;
+}
