@@ -21,7 +21,6 @@
 			<thead>
 				<tr>
 					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('description') ?></th>
 					<th scope="col" class="actions"></th>
 				</tr>
@@ -31,7 +30,6 @@
 				<?php foreach ($pictures as $picture): ?>
 					<tr>
 						<td><?= $this->Number->format($picture->id) ?></td>
-						<td><?= h($picture->created) ?></td>
 						<td><?= h($picture->description) ?></td>
 						<td class="actions">
 							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $picture->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
