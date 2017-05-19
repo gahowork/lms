@@ -54,4 +54,19 @@
 </div>
 
 <?= $this->element('ModifyTable/questionanswer_table') ?>
-<?= $this->element('ModifyTable/questioncategory_table') ?>
+
+<div class="panel panel-default">
+	<div class="panel-heading">
+		<span><?= __('Question configuration') ?></span>
+	</div>
+	<div class="panel-body">
+		<div class="row">
+			<div class="col-md-6">
+				<?= $this->element('ModifyTable/questioncategory_table') ?>
+			</div>
+			<div class="col-md-6">
+				<?= $this->element('ModifyTable/questionlevel_table') ?>
+			</div>
+		</div>
+	</div>
+</div>
