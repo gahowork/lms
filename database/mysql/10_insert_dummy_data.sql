@@ -43,7 +43,7 @@ INSERT INTO answers(id, description) VALUES (7, 'Answer 7');
 INSERT INTO answers(id, description) VALUES (8, 'Answer 8');
 INSERT INTO answers(id, description) VALUES (9, 'The answer is 21, i know it.');
 INSERT INTO answers(id, description) VALUES (10, 'I dont know');
-INSERT INTO answers(id, description) VALUES (11, '4375 rabbitfeet');
+INSERT INTO answers(id, description) VALUES (11, '4375 rabbitfeet or 64738 goosefeet');
 INSERT INTO answers(id, description) VALUES (12, 'Can i ask alice?');
 
 INSERT INTO questionanswers(question_id, answer_id, result) VALUES(1, 1, 1);
