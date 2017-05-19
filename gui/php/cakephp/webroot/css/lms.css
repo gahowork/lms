@@ -36,3 +36,11 @@
 .panel table tr td.actions {
 	width: 3em;
 }
+
+.panel nav ul.nav.navbar-nav {
+	float: left;
+}
+
+.panel nav ul.nav.navbar-nav.navbar-right {
+	float: right;
+}
