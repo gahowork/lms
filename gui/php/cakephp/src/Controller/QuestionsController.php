@@ -57,7 +57,7 @@ class QuestionsController extends AppController
             if ($this->Questions->save($question)) {
                 $this->Flash->success(__('The question has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view', $question->id]);
             }
             $this->Flash->error(__('The question could not be saved. Please, try again.'));
         }
@@ -83,7 +83,7 @@ class QuestionsController extends AppController
             if ($this->Questions->save($question)) {
                 $this->Flash->success(__('The question has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
+                return $this->redirect(['action' => 'view', $question->id]);
             }
             $this->Flash->error(__('The question could not be saved. Please, try again.'));
         }
