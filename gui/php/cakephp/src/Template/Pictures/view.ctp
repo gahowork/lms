@@ -40,7 +40,16 @@
 				<label for="picturedescription"><?= __('Description') ?></label>
 				<div class="form-control" id="picturedescription"><?= h($picture->description) ?></div>
 			</div>
-
+			<div class="form-group">
+				<div>
+					<label for="picturedescription"><?= __('Picture') ?></label>
+				</div>
+				<div class="row">
+					<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
+						<?php echo $this->Html->image(['controller'=>'img', 'action'=>'upload', $picture->filename ], ['class'=>'img-rounded img-responsive']);?>
+					</div>
+				</div>
+			</div>
 	</fieldset>
 	</div>
 </div>
