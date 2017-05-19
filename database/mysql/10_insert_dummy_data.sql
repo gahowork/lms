@@ -1,6 +1,6 @@
-INSERT INTO pictures(id, description, image) VALUES(1, 'Dummy Picture 1', 0x00);
-INSERT INTO pictures(id, description, image) VALUES(2, 'Dummy Picture 2', 0x00);
-INSERT INTO pictures(id, description, image) VALUES(3, 'Dummy Picture 3', 0x00);
+INSERT INTO pictures(id, description, filename) VALUES(1, 'Dummy Picture 1', 'picture_1.png');
+INSERT INTO pictures(id, description, filename) VALUES(2, 'Dummy Picture 2', 'picture_2.png');
+INSERT INTO pictures(id, description, filename) VALUES(3, 'Dummy Picture 3', 'picture_3.png');
 
 INSERT INTO categories(id, description, picture_id) VALUES(1, 'Category 1', 1);
 INSERT INTO categories(id, description, picture_id) VALUES(2, 'Category 2', 1);
