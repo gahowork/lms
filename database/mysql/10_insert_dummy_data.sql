@@ -1,6 +1,23 @@
 INSERT INTO pictures(id, description, filename) VALUES(1, 'Dummy Picture 1', 'picture_1.png');
 INSERT INTO pictures(id, description, filename) VALUES(2, 'Dummy Picture 2', 'picture_2.png');
 INSERT INTO pictures(id, description, filename) VALUES(3, 'Dummy Picture 3', 'picture_3.png');
+INSERT INTO pictures(id, description, filename) VALUES(4, 'Dummy Picture 4', 'picture_4.png');
+INSERT INTO pictures(id, description, filename) VALUES(5, 'Dummy Picture 5', 'picture_5.png');
+INSERT INTO pictures(id, description, filename) VALUES(6, 'Dummy Picture 6', 'picture_6.png');
+INSERT INTO pictures(id, description, filename) VALUES(7, 'Dummy Picture 7', 'picture_7.png');
+INSERT INTO pictures(id, description, filename) VALUES(8, 'Dummy Picture 8', 'picture_8.png');
+INSERT INTO pictures(id, description, filename) VALUES(9, 'Dummy Picture 9', 'picture_9.png');
+INSERT INTO pictures(id, description, filename) VALUES(10, 'Dummy Picture 10', 'picture_10.png');
+INSERT INTO pictures(id, description, filename) VALUES(11, 'Dummy Picture 11', 'picture_11.png');
+INSERT INTO pictures(id, description, filename) VALUES(12, 'Dummy Picture 12', 'picture_12.png');
+INSERT INTO pictures(id, description, filename) VALUES(13, 'Dummy Picture 13', 'picture_13.png');
+INSERT INTO pictures(id, description, filename) VALUES(14, 'Dummy Picture 14', 'picture_14.png');
+INSERT INTO pictures(id, description, filename) VALUES(15, 'Dummy Picture 15', 'picture_15.png');
+INSERT INTO pictures(id, description, filename) VALUES(16, 'Dummy Picture 16', 'picture_16.png');
+INSERT INTO pictures(id, description, filename) VALUES(17, 'Dummy Picture 17', 'picture_17.png');
+INSERT INTO pictures(id, description, filename) VALUES(18, 'Dummy Picture 18', 'picture_18.png');
+INSERT INTO pictures(id, description, filename) VALUES(19, 'Dummy Picture 19', 'picture_19.png');
+INSERT INTO pictures(id, description, filename) VALUES(20, 'Dummy Picture 20', 'picture_20.png');
 
 INSERT INTO categories(id, description, picture_id) VALUES(1, 'Category 1', 1);
 INSERT INTO categories(id, description, picture_id) VALUES(2, 'Category 2', 1);
