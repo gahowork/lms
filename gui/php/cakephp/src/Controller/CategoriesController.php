@@ -87,9 +87,9 @@ class CategoriesController extends AppController
             }
             $this->Flash->error(__('The category could not be saved. Please, try again.'));
         }
-        $pictures = $this->Categories->Pictures->find('list', ['limit' => 200]);
+        $pictures = $this->Categories->Pictures->find('all', ['limit' => 200]);
         $this->set(compact('category', 'pictures'));
-        $this->set('_serialize', ['category']);
+        $this->set('_serialize', ['category', 'pictures']);
     }
 
     /**

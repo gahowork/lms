@@ -44,3 +44,28 @@
 .panel nav ul.nav.navbar-nav.navbar-right {
 	float: right;
 }
+
+.pictureselect input {
+	display: none;
+}
+
+.pictureselect input + label {
+	margin-right: 1em;
+}
+
+.pictureselect input + label {
+	border-radius: 7px;
+}
+
+.pictureselect input:checked + label img{
+	box-shadow: 0 0 15px #f0ad4e;
+}
+
+.pictureselect input + label img.checked {
+	box-shadow: 0 0 15px #66afe9;
+}
+
+.pictureselect .pictureselector {
+	max-width: 12em;
+	max-height: 8em;
+}
