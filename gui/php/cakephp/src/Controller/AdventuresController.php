@@ -34,7 +34,7 @@ class AdventuresController extends AppController
     public function view($id = null)
     {
         $adventure = $this->Adventures->get($id, [
-            'contain' => ['Adventurequestions']
+            'contain' => ['Adventurequestions', 'Adventurequestions.Questions']
         ]);
 
         $this->set('adventure', $adventure);
