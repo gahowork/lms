@@ -5,7 +5,7 @@
 
 		<div class="panel panel-default config-button">
 			<div class="panel-body">
-				<img alt="" src="" />
+				<span class="glyphicon glyphicon-tent"></span>
 			</div>
 			<div class="panel-footer">
 				<?= $this->Html->link(
@@ -18,7 +18,7 @@
 
 		<div class="panel panel-default config-button">
 			<div class="panel-body">
-				<img alt="" src="" />
+				<span class="glyphicon glyphicon-th-large"></span>
 			</div>
 			<div class="panel-footer">
 				<?= $this->Html->link(
@@ -31,7 +31,7 @@
 
 		<div class="panel panel-default config-button">
 			<div class="panel-body">
-				<img alt="" src="" />
+				<span class="glyphicon glyphicon-sort-by-attributes"></span>
 			</div>
 			<div class="panel-footer">
 				<?= $this->Html->link(
@@ -44,7 +44,7 @@
 
 		<div class="panel panel-default config-button">
 			<div class="panel-body">
-				<img alt="" src="" />
+				<span class="glyphicon glyphicon-picture"></span>
 			</div>
 			<div class="panel-footer">
 				<?= $this->Html->link(
@@ -57,7 +57,7 @@
 
 		<div class="panel panel-default config-button">
 			<div class="panel-body">
-				<img alt="" src="" />
+				<span class="glyphicon glyphicon-question-sign"></span>
 			</div>
 			<div class="panel-footer">
 				<?= $this->Html->link(
@@ -70,7 +70,7 @@
 
 		<div class="panel panel-default config-button">
 			<div class="panel-body">
-				<img alt="" src="" />
+				<span class="glyphicon glyphicon-user"></span>
 			</div>
 			<div class="panel-footer">
 				<?= $this->Html->link(
@@ -83,7 +83,8 @@
 
 		<div class="panel panel-default config-button">
 			<div class="panel-body">
-				<img alt="" src="" />
+				<span class="glyphicon glyphicon-user half"></span>
+				<span class="glyphicon glyphicon-user half"></span>
 			</div>
 			<div class="panel-footer">
 				<?= $this->Html->link(
