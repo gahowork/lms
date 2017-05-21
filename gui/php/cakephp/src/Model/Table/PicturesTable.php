@@ -75,8 +75,8 @@ class PicturesTable extends Table
             ->add('description', 'unique', ['rule' => 'validateUnique', 'provider' => 'table']);
 
         $validator
-            ->requirePresence('image', 'create')
-            ->notEmpty('image');
+            ->requirePresence('filename', 'create')
+            ->notEmpty('filename');
 
         return $validator;
     }
