@@ -117,3 +117,21 @@ INSERT INTO questionpictures(question_id, picture_id) VALUES(3, 3);
 INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 1);
 INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 2);
 INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 3);
+
+INSERT INTO adventures(id, description) VALUES(1, 'Adventure 1');
+INSERT INTO adventures(id, description) VALUES(2, 'Adventure 2');
+INSERT INTO adventures(id, description) VALUES(3, 'Adventure 3');
+INSERT INTO adventures(id, description) VALUES(4, 'Adventure 4');
+
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(1, 1);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(1, 2);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(1, 3);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(1, 4);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(2, 5);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(2, 6);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(2, 7);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(2, 8);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(3, 9);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(3, 10);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(3, 11);
+INSERT INTO adventurequestions(adventure_id, question_id) VALUES(3, 12);
