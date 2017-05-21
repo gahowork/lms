@@ -18,10 +18,11 @@
 
 	<div class="panel-body">
 
-		<?= $this->Form->create($picture) ?>
+		<?= $this->Form->create($picture, ['type' => 'file']) ?>
 		<fieldset>
 			<?php
 						echo $this->Form->input('description',['class'=>'form-control']);
+						echo $this->Form->input('File.filename', ['label' => 'Image','type'=>'file']);
 			?>
 		</fieldset>
 		<?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>

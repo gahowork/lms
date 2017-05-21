@@ -50,7 +50,15 @@ class PicturesController extends AppController
     {
         $picture = $this->Pictures->newEntity();
         if ($this->request->is('post')) {
-            $picture = $this->Pictures->patchEntity($picture, $this->request->data);
+			$filedata = $this->request->data['File'];
+			unset($this->request->data['File']);
+
+			$uploadedFiles = $this->uploadFiles('img/upload', $filedata);
+			$this->request->data['filename'] = $uploadedFiles['urls'][0];
+
+			$picture = $this->Pictures->patchEntity($picture, $this->request->data);
+			debug($picture);
+
             if ($this->Pictures->save($picture)) {
                 $this->Flash->success(__('The picture has been saved.'));
 
@@ -106,4 +114,61 @@ class PicturesController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+	function uploadFiles($folder, $formdata) {
+		$folder_url = WWW_ROOT.$folder;
+		$rel_url = $folder;
+
+		if(!is_dir($folder_url)) {
+			mkdir($folder_url);
+		}
+
+		$permitted = array('image/gif','image/jpeg','image/pjpeg','image/png');
+
+		foreach($formdata as $file) {
+			$filename = str_replace(' ', '_', $file['name']);
+			$typeOK = false;
+			foreach($permitted as $type) {
+				if($type == $file['type']) {
+					$typeOK = true;
+					break;
+				}
+			}
+
+			if($typeOK) {
+				switch($file['error']) {
+					case 0:
+						$newfilename = uniqid('lms_', true);
+						$maxtrys = 10;
+						while (file_exists($folder_url.'/'.$newfilename)) {
+							$newfilename = uniqid('lms_', true);
+							$maxtrys -= 1;
+							if( $maxtrys < 1) { break; }
+						}
+						$full_url = $folder_url.'/'.$newfilename;
+						$url = $rel_url.'/'.$newfilename;
+						$success = move_uploaded_file($file['tmp_name'], $url);
+
+						if($success) {
+							$result['urls'][] = $newfilename;
+						} else {
+							$result['errors'][] = "Error uploaded $filename. Please try again.";
+						}
+						break;
+					case 3:
+						$result['errors'][] = "Error uploading $filename. Please try again.";
+						break;
+					default:
+						$result['errors'][] = "System error uploading $filename. Contact webmaster.";
+						break;
+				}
+			} elseif($file['error'] == 4) {
+				$result['nofiles'][] = "No file Selected";
+			} else {
+				$result['errors'][] = "$filename cannot be uploaded. Acceptable file types: gif, jpg, png.";
+			}
+		}
+		return $result;
+	}
+
 }
