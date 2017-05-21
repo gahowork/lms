@@ -45,6 +45,10 @@
 	float: right;
 }
 
+.picture {
+	max-height: 30em;
+}
+
 .pictureselect {
 	padding-top: 1em;
 	padding-left: 1em;
