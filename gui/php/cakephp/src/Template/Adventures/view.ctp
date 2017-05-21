@@ -44,3 +44,5 @@
 	</fieldset>
 	</div>
 </div>
+
+<?= $this->element('ModifyTable/adventurequestion_table') ?>
