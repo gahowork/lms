@@ -45,6 +45,23 @@ class AdventurequestionsController extends AppController
 	}
 
 	/**
+	 * Viewbyadventure method
+	 *
+	 * @param string|null $id Adventurequestion id.
+	 * @return \Cake\Network\Response|null
+	 * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+	 */
+	public function viewbyadventure($id = null)
+	{
+		$adventurequestion = $this->Adventurequestions->get($id, [
+			'contain' => ['Questions']
+		]);
+
+		$this->set('adventurequestion', $adventurequestion);
+		$this->set('_serialize', ['adventurequestion']);
+	}
+
+	/**
 	 * Add method
 	 *
 	 * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
@@ -57,13 +74,36 @@ class AdventurequestionsController extends AppController
 			if ($this->Adventurequestions->save($adventurequestion)) {
 				$this->Flash->success(__('The adventurequestion has been saved.'));
 
-				return $this->redirect(['action' => 'index']);
+				return $this->redirect(['action' => 'view', $adventurequestion->id]);
 			}
 			$this->Flash->error(__('The adventurequestion could not be saved. Please, try again.'));
 		}
 		$adventures = $this->Adventurequestions->Adventures->find('list', ['limit' => 200]);
 		$questions = $this->Adventurequestions->Questions->find('list', ['limit' => 200]);
 		$this->set(compact('adventurequestion', 'adventures', 'questions'));
+		$this->set('_serialize', ['adventurequestion']);
+	}
+
+	/**
+	 * Addbyadventure method
+	 *
+	 * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
+	 */
+	public function addbyadventure($id = null)
+	{
+		$adventurequestion = $this->Adventurequestions->newEntity();
+		$adventurequestion->adventure_id = $id;
+		if ($this->request->is('post')) {
+			$adventurequestion = $this->Adventurequestions->patchEntity($adventurequestion, $this->request->data);
+			if ($this->Adventurequestions->save($adventurequestion)) {
+				$this->Flash->success(__('The adventurequestion has been saved.'));
+
+				return $this->redirect(['action' => 'viewbyadventure', $adventurequestion->id]);
+			}
+			$this->Flash->error(__('The adventurequestion could not be saved. Please, try again.'));
+		}
+		$questions = $this->Adventurequestions->Questions->find('list', ['limit' => 200]);
+		$this->set(compact('adventurequestion', 'questions'));
 		$this->set('_serialize', ['adventurequestion']);
 	}
 
@@ -84,13 +124,39 @@ class AdventurequestionsController extends AppController
 			if ($this->Adventurequestions->save($adventurequestion)) {
 				$this->Flash->success(__('The adventurequestion has been saved.'));
 
-				return $this->redirect(['action' => 'index']);
+				return $this->redirect(['action' => 'view', $adventurequestion->id]);
 			}
 			$this->Flash->error(__('The adventurequestion could not be saved. Please, try again.'));
 		}
 		$adventures = $this->Adventurequestions->Adventures->find('list', ['limit' => 200]);
 		$questions = $this->Adventurequestions->Questions->find('list', ['limit' => 200]);
 		$this->set(compact('adventurequestion', 'adventures', 'questions'));
+		$this->set('_serialize', ['adventurequestion']);
+	}
+
+	/**
+	 * Editbyadventure method
+	 *
+	 * @param string|null $id Adventurequestion id.
+	 * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
+	 * @throws \Cake\Network\Exception\NotFoundException When record not found.
+	 */
+	public function editbyadventure($id = null)
+	{
+		$adventurequestion = $this->Adventurequestions->get($id, [
+			'contain' => []
+		]);
+		if ($this->request->is(['patch', 'post', 'put'])) {
+			$adventurequestion = $this->Adventurequestions->patchEntity($adventurequestion, $this->request->data);
+			if ($this->Adventurequestions->save($adventurequestion)) {
+				$this->Flash->success(__('The adventurequestion has been saved.'));
+
+				return $this->redirect(['action' => 'viewbyadventure', $adventurequestion->id]);
+			}
+			$this->Flash->error(__('The adventurequestion could not be saved. Please, try again.'));
+		}
+		$questions = $this->Adventurequestions->Questions->find('list', ['limit' => 200]);
+		$this->set(compact('adventurequestion', 'questions'));
 		$this->set('_serialize', ['adventurequestion']);
 	}
 
@@ -113,4 +179,25 @@ class AdventurequestionsController extends AppController
 
 		return $this->redirect(['action' => 'index']);
 	}
+
+	/**
+	 * Delete method
+	 *
+	 * @param string|null $id Adventurequestion id.
+	 * @return \Cake\Network\Response|null Redirects to index.
+	 * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+	 */
+	public function deletebyadventure($id = null)
+	{
+		$this->request->allowMethod(['post', 'delete']);
+		$adventurequestion = $this->Adventurequestions->get($id);
+		if ($this->Adventurequestions->delete($adventurequestion)) {
+			$this->Flash->success(__('The adventurequestion has been deleted.'));
+		} else {
+			$this->Flash->error(__('The adventurequestion could not be deleted. Please, try again.'));
+		}
+
+		return $this->redirect(['action' => 'view', $adventurequestion->adventure]);
+	}
+
 }
