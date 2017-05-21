@@ -45,24 +45,32 @@
 	float: right;
 }
 
+.pictureselect {
+	padding-top: 1em;
+	padding-left: 1em;
+	max-height: 18em;
+	overflow-y: scroll;
+}
+
 .pictureselect input {
 	display: none;
 }
 
 .pictureselect input + label {
-	margin-right: 1em;
+	margin-right: 1.5em;
+	margin-bottom: 1em;
 }
 
 .pictureselect input + label {
-	border-radius: 7px;
+	border-radius: 1em;
 }
 
 .pictureselect input:checked + label img{
-	box-shadow: 0 0 15px #f0ad4e;
+	box-shadow: 0 0 1em #f0ad4e;
 }
 
 .pictureselect input + label img.checked {
-	box-shadow: 0 0 15px #66afe9;
+	box-shadow: 0 0 1em #66afe9;
 }
 
 .pictureselect .pictureselector {
