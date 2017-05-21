@@ -11,45 +11,45 @@ use App\Controller\AppController;
 class PicturesController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function index()
-    {
-        $pictures = $this->paginate($this->Pictures);
+	/**
+	 * Index method
+	 *
+	 * @return \Cake\Network\Response|null
+	 */
+	public function index()
+	{
+		$pictures = $this->paginate($this->Pictures);
 
-        $this->set(compact('pictures'));
-        $this->set('_serialize', ['pictures']);
-    }
+		$this->set(compact('pictures'));
+		$this->set('_serialize', ['pictures']);
+	}
 
-    /**
-     * View method
-     *
-     * @param string|null $id Picture id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $picture = $this->Pictures->get($id, [
-            'contain' => ['Answerpictures', 'Categories', 'Levels', 'Questionpictures']
-        ]);
+	/**
+	 * View method
+	 *
+	 * @param string|null $id Picture id.
+	 * @return \Cake\Network\Response|null
+	 * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+	*/
+	public function view($id = null)
+	{
+		$picture = $this->Pictures->get($id, [
+			'contain' => ['Answerpictures', 'Categories', 'Levels', 'Questionpictures']
+		]);
 
-        $this->set('picture', $picture);
-        $this->set('_serialize', ['picture']);
-    }
+		$this->set('picture', $picture);
+		$this->set('_serialize', ['picture']);
+	}
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $picture = $this->Pictures->newEntity();
-        if ($this->request->is('post')) {
+	/**
+	 * Add method
+	 *
+	 * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
+	*/
+	public function add()
+	{
+		$picture = $this->Pictures->newEntity();
+		if ($this->request->is('post')) {
 			$filedata = $this->request->data['File'];
 			unset($this->request->data['File']);
 
@@ -57,61 +57,61 @@ class PicturesController extends AppController
 			$this->request->data['filename'] = $uploadedFiles['urls'][0]['filename'];
 
 			$picture = $this->Pictures->patchEntity($picture, $this->request->data);
-            if ($this->Pictures->save($picture)) {
-                $this->Flash->success(__('The picture has been saved.'));
+			if ($this->Pictures->save($picture)) {
+				$this->Flash->success(__('The picture has been saved.'));
 
-                return $this->redirect(['action' => 'view', $picture->id]);
-            }
-            $this->Flash->error(__('The picture could not be saved. Please, try again.'));
-        }
-        $this->set(compact('picture'));
-        $this->set('_serialize', ['picture']);
-    }
+				return $this->redirect(['action' => 'view', $picture->id]);
+			}
+			$this->Flash->error(__('The picture could not be saved. Please, try again.'));
+		}
+		$this->set(compact('picture'));
+		$this->set('_serialize', ['picture']);
+	}
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Picture id.
-     * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $picture = $this->Pictures->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $picture = $this->Pictures->patchEntity($picture, $this->request->data);
-            if ($this->Pictures->save($picture)) {
-                $this->Flash->success(__('The picture has been saved.'));
+	/**
+	 * Edit method
+	 *
+	 * @param string|null $id Picture id.
+	 * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
+	 * @throws \Cake\Network\Exception\NotFoundException When record not found.
+	*/
+	public function edit($id = null)
+	{
+		$picture = $this->Pictures->get($id, [
+			'contain' => []
+		]);
+		if ($this->request->is(['patch', 'post', 'put'])) {
+			$picture = $this->Pictures->patchEntity($picture, $this->request->data);
+			if ($this->Pictures->save($picture)) {
+				$this->Flash->success(__('The picture has been saved.'));
 
-                return $this->redirect(['action' => 'index']);
-            }
-            $this->Flash->error(__('The picture could not be saved. Please, try again.'));
-        }
-        $this->set(compact('picture'));
-        $this->set('_serialize', ['picture']);
-    }
+				return $this->redirect(['action' => 'index']);
+			}
+			$this->Flash->error(__('The picture could not be saved. Please, try again.'));
+		}
+		$this->set(compact('picture'));
+		$this->set('_serialize', ['picture']);
+	}
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Picture id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $picture = $this->Pictures->get($id);
-        if ($this->Pictures->delete($picture)) {
-            $this->Flash->success(__('The picture has been deleted.'));
-        } else {
-            $this->Flash->error(__('The picture could not be deleted. Please, try again.'));
-        }
+	/**
+	 * Delete method
+	 *
+	 * @param string|null $id Picture id.
+	 * @return \Cake\Network\Response|null Redirects to index.
+	 * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+	*/
+	public function delete($id = null)
+	{
+		$this->request->allowMethod(['post', 'delete']);
+		$picture = $this->Pictures->get($id);
+		if ($this->Pictures->delete($picture)) {
+			$this->Flash->success(__('The picture has been deleted.'));
+		} else {
+			$this->Flash->error(__('The picture could not be deleted. Please, try again.'));
+		}
 
-        return $this->redirect(['action' => 'index']);
-    }
+		return $this->redirect(['action' => 'index']);
+	}
 
 	function uploadFiles($folder, $formdata) {
 		$folder_url = WWW_ROOT.$folder;
