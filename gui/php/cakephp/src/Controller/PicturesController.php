@@ -57,8 +57,6 @@ class PicturesController extends AppController
 			$this->request->data['filename'] = $uploadedFiles['urls'][0];
 
 			$picture = $this->Pictures->patchEntity($picture, $this->request->data);
-			debug($picture);
-
             if ($this->Pictures->save($picture)) {
                 $this->Flash->success(__('The picture has been saved.'));
 
