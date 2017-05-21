@@ -54,7 +54,7 @@ class PicturesController extends AppController
 			unset($this->request->data['File']);
 
 			$uploadedFiles = $this->uploadFiles('img/upload', $filedata);
-			$this->request->data['filename'] = $uploadedFiles['urls'][0];
+			$this->request->data['filename'] = $uploadedFiles['urls'][0]['filename'];
 
 			$picture = $this->Pictures->patchEntity($picture, $this->request->data);
             if ($this->Pictures->save($picture)) {
@@ -148,7 +148,11 @@ class PicturesController extends AppController
 						$success = move_uploaded_file($file['tmp_name'], $url);
 
 						if($success) {
-							$result['urls'][] = $newfilename;
+							$result['urls'][] = [
+								'url'=>$url,
+								'full_url'=>$full_url,
+								'filename'=>$newfilename
+							];
 						} else {
 							$result['errors'][] = "Error uploaded $filename. Please try again.";
 						}
