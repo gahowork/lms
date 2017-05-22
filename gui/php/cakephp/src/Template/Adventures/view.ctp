@@ -45,4 +45,4 @@
 	</div>
 </div>
 
-<?= $this->element('ModifyTable/adventurequestion_table') ?>
+<?= $this->element('ModifyTable/adventurequestion_byadventure_table') ?>
