@@ -92,6 +92,6 @@
 	/* max-height: 4em; */
 }
 
-.questionanswerelement > div {
+.questionanswerelement > div.row > div {
 	margin-bottom: 1em;
 }
