@@ -29,3 +29,19 @@
 .questions table .created {
 	display: none;
 }
+
+@media (max-width: 768px) {
+	.questions table .questiontype {
+		display: none;
+	}
+}
+
+@media display (max-width: 640px) {
+	.questions table .description {
+		display: none;
+	}
+
+	.questions table .questiontype {
+		display: none;
+	}
+}
