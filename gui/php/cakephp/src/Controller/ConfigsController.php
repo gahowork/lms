@@ -10,13 +10,13 @@ use App\Controller\AppController;
 class ConfigsController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function index()
-    {
-    }
+	/**
+	 * Index method
+	 *
+	 * @return \Cake\Network\Response|null
+	 */
+	public function index()
+	{
+	}
 
 }

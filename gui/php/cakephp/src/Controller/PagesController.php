@@ -10,11 +10,11 @@ use App\Controller\AppController;
 class PagesController extends AppController
 {
 
-    /**
-     * Displays main view
-     *
-     */
-    public function display()
-    {
-    }
+	/**
+	 * Displays main view
+	 *
+	 */
+	public function display()
+	{
+	}
 }

@@ -45,92 +45,92 @@ class QuestionsController extends AppController
 
 		$this->set(compact('questions', 'questionIndexFilter'));
 		$this->set('_serialize', ['questions', 'questionIndexFilter']);
-    }
+	}
 
-    /**
-     * View method
-     *
-     * @param string|null $id Question id.
-     * @return \Cake\Network\Response|null
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function view($id = null)
-    {
-        $question = $this->Questions->get($id, [
-            'contain' => ['Questiontypes', 'Adventurequestions', 'Questionanswers', 'Questioncategories', 'Questionlevels', 'Questionpictures', 'Questionpictures.Pictures', 'Questionanswers.Answers', 'Questioncategories.Categories', 'Questionlevels.Levels', 'Adventurequestions.Adventures']
-        ]);
+	/**
+	 * View method
+	 *
+	 * @param string|null $id Question id.
+	 * @return \Cake\Network\Response|null
+	 * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+	 */
+	public function view($id = null)
+	{
+		$question = $this->Questions->get($id, [
+			'contain' => ['Questiontypes', 'Adventurequestions', 'Questionanswers', 'Questioncategories', 'Questionlevels', 'Questionpictures', 'Questionpictures.Pictures', 'Questionanswers.Answers', 'Questioncategories.Categories', 'Questionlevels.Levels', 'Adventurequestions.Adventures']
+		]);
 
-        $this->set('question', $question);
-        $this->set('_serialize', ['question']);
-    }
+		$this->set('question', $question);
+		$this->set('_serialize', ['question']);
+	}
 
-    /**
-     * Add method
-     *
-     * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
-     */
-    public function add()
-    {
-        $question = $this->Questions->newEntity();
-        if ($this->request->is('post')) {
-            $question = $this->Questions->patchEntity($question, $this->request->data);
-            if ($this->Questions->save($question)) {
-                $this->Flash->success(__('The question has been saved.'));
+	/**
+	 * Add method
+	 *
+	 * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
+	 */
+	public function add()
+	{
+		$question = $this->Questions->newEntity();
+		if ($this->request->is('post')) {
+			$question = $this->Questions->patchEntity($question, $this->request->data);
+			if ($this->Questions->save($question)) {
+				$this->Flash->success(__('The question has been saved.'));
 
-                return $this->redirect(['action' => 'view', $question->id]);
-            }
-            $this->Flash->error(__('The question could not be saved. Please, try again.'));
-        }
-        $questiontypes = $this->Questions->Questiontypes->find('list', ['limit' => 200]);
-        $this->set(compact('question', 'questiontypes'));
-        $this->set('_serialize', ['question']);
-    }
+				return $this->redirect(['action' => 'view', $question->id]);
+			}
+			$this->Flash->error(__('The question could not be saved. Please, try again.'));
+		}
+		$questiontypes = $this->Questions->Questiontypes->find('list', ['limit' => 200]);
+		$this->set(compact('question', 'questiontypes'));
+		$this->set('_serialize', ['question']);
+	}
 
-    /**
-     * Edit method
-     *
-     * @param string|null $id Question id.
-     * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
-     * @throws \Cake\Network\Exception\NotFoundException When record not found.
-     */
-    public function edit($id = null)
-    {
-        $question = $this->Questions->get($id, [
-            'contain' => []
-        ]);
-        if ($this->request->is(['patch', 'post', 'put'])) {
-            $question = $this->Questions->patchEntity($question, $this->request->data);
-            if ($this->Questions->save($question)) {
-                $this->Flash->success(__('The question has been saved.'));
+	/**
+	 * Edit method
+	 *
+	 * @param string|null $id Question id.
+	 * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
+	 * @throws \Cake\Network\Exception\NotFoundException When record not found.
+	 */
+	public function edit($id = null)
+	{
+		$question = $this->Questions->get($id, [
+			'contain' => []
+		]);
+		if ($this->request->is(['patch', 'post', 'put'])) {
+			$question = $this->Questions->patchEntity($question, $this->request->data);
+			if ($this->Questions->save($question)) {
+				$this->Flash->success(__('The question has been saved.'));
 
-                return $this->redirect(['action' => 'view', $question->id]);
-            }
-            $this->Flash->error(__('The question could not be saved. Please, try again.'));
-        }
-        $questiontypes = $this->Questions->Questiontypes->find('list', ['limit' => 200]);
-        $this->set(compact('question', 'questiontypes'));
-        $this->set('_serialize', ['question']);
-    }
+				return $this->redirect(['action' => 'view', $question->id]);
+			}
+			$this->Flash->error(__('The question could not be saved. Please, try again.'));
+		}
+		$questiontypes = $this->Questions->Questiontypes->find('list', ['limit' => 200]);
+		$this->set(compact('question', 'questiontypes'));
+		$this->set('_serialize', ['question']);
+	}
 
-    /**
-     * Delete method
-     *
-     * @param string|null $id Question id.
-     * @return \Cake\Network\Response|null Redirects to index.
-     * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
-     */
-    public function delete($id = null)
-    {
-        $this->request->allowMethod(['post', 'delete']);
-        $question = $this->Questions->get($id);
-        if ($this->Questions->delete($question)) {
-            $this->Flash->success(__('The question has been deleted.'));
-        } else {
-            $this->Flash->error(__('The question could not be deleted. Please, try again.'));
-        }
+	/**
+	 * Delete method
+	 *
+	 * @param string|null $id Question id.
+	 * @return \Cake\Network\Response|null Redirects to index.
+	 * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+	 */
+	public function delete($id = null)
+	{
+		$this->request->allowMethod(['post', 'delete']);
+		$question = $this->Questions->get($id);
+		if ($this->Questions->delete($question)) {
+			$this->Flash->success(__('The question has been deleted.'));
+		} else {
+			$this->Flash->error(__('The question could not be deleted. Please, try again.'));
+		}
 
-        return $this->redirect(['action' => 'index']);
-    }
+		return $this->redirect(['action' => 'index']);
+	}
 
 	/**
 	 * addfilter method
