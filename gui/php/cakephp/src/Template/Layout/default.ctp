@@ -29,6 +29,7 @@ $cakeDescription = 'CakePHP: the rapid development php framework';
 
 		<?= $this->Html->css('bootstrap.css') ?>
 		<?= $this->Html->css('lms.css') ?>
+		<?= $this->Html->css('indextableconfig.css') ?>
 
 		<?= $this->fetch('meta') ?>
 		<?= $this->fetch('css') ?>
