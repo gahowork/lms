@@ -113,3 +113,7 @@
 .questionIndexFilterPanel a {
 	margin-right: 0.3em;
 }
+
+.questions div#questiondescription {
+	height: auto;
+}
