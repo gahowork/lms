@@ -23,7 +23,7 @@
 		<fieldset>
 			<?php
 						echo $this->Form->input('header',['class'=>'form-control']);
-						echo $this->Form->input('description',['class'=>'form-control']);
+						echo $this->Form->textarea('description',['class'=>'form-control']);
 						echo $this->Form->input('questiontype_id', ['class'=>'form-control'], ['options' => $questiontypes]);
 			?>
 		</fieldset>

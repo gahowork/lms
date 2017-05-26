@@ -100,6 +100,9 @@ class QuestionsController extends AppController
         ]);
         if ($this->request->is(['patch', 'post', 'put'])) {
             $question = $this->Questions->patchEntity($question, $this->request->data);
+
+			debug($question);
+			//die;
             if ($this->Questions->save($question)) {
                 $this->Flash->success(__('The question has been saved.'));
 
