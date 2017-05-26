@@ -48,10 +48,7 @@
 				<label for="levelleveltarget"><?= __('Leveltarget') ?></label>
 				<div class="form-control" id="levelleveltarget"><?= $this->Number->format($level->leveltarget) ?></div>
 			</div>
-			<div class="form-group">
-				<label for="levelpicture_id"><?= __('Picture') ?></label>
-				<?= $level->has('picture') ? $this->Html->link('<span class="label">' . $level->picture->description . '</span> <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Pictures', 'action' => 'view', $level->picture->id], ['class'=>'btn btn-info', 'id'=>'levelpicture_id', 'escape'=>false]) : '' ?>
-			</div>
+			<?= $this->Element('Gui/pictureViewForm',['picture'=>$level->picture]) ?>
 	</fieldset>
 	</div>
 </div>
