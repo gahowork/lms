@@ -22,9 +22,9 @@
 		<fieldset>
 			<?php
 						echo $this->Form->input('description',['class'=>'form-control']);
-						echo $this->Form->input('picture_id', ['class'=>'form-control'], ['options' => $pictures]);
 						echo $this->Form->input('levelpoints',['class'=>'form-control']);
 						echo $this->Form->input('leveltarget',['class'=>'form-control']);
+						echo $this->Form->input('picture_id', ['class'=>'form-control'], ['options' => $pictures]);
 			?>
 		</fieldset>
 		<?= $this->Form->button(__('Submit'),['class'=>'btn btn-success form-control']) ?>
