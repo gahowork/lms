@@ -40,16 +40,7 @@
 				<label for="categorydescription"><?= __('Description') ?></label>
 				<div class="form-control" id="categorydescription"><?= h($category->description) ?></div>
 			</div>
-			<div class="form-group">
-				<div>
-					<label for="picturedescription"><?= __('Picture') ?></label>
-				</div>
-				<div class="row">
-					<div class="col-xs-12 col-sm-8 col-md-6 col-lg-6">
-						<?php echo $this->Html->image(['controller'=>'img', 'action'=>'upload', $category->picture->filename ], ['class'=>'img-rounded img-responsive picture']);?>
-					</div>
-				</div>
-			</div>
+			<?= $this->Element('Gui/pictureViewForm',['picture'=>$category->picture]) ?>
 	</fieldset>
 	</div>
 </div>
