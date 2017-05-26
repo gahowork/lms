@@ -1,5 +1,10 @@
-
-<div class="panel panel-default">
+<?php
+	$panelMode='panel-default';
+	if (count($question['questioncategories']) < 1) {
+		$panelMode='panel-warning';
+	}
+?>
+<div class="panel <?= $panelMode ?>">
 	<nav class="panel-heading navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
