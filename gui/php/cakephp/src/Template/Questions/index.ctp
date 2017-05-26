@@ -27,6 +27,7 @@
 					<th class="questiontype" scope="col"><?= $this->Paginator->sort('questiontype_id') ?></th>
 					<th scope="col" class="actions"></th>
 				</tr>
+				<?= $this->Element('Gui/Filter/questionIndexFilter'); ?>
 			</thead>
 
 			<tbody>
