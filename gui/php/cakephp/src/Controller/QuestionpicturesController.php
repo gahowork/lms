@@ -102,7 +102,7 @@ class QuestionpicturesController extends AppController
 			}
 			$this->Flash->error(__('The questionpicture could not be saved. Please, try again.'));
 		}
-		$pictures = $this->Questionpictures->Pictures->find('list', ['limit' => 200]);
+		$pictures = $this->Questionpictures->Pictures->find('all', ['limit' => 200]);
 		$this->set(compact('questionpicture', 'questions', 'pictures'));
 		$this->set('_serialize', ['questionpicture']);
 	}
