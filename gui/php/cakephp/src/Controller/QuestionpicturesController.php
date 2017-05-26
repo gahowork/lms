@@ -144,7 +144,7 @@ class QuestionpicturesController extends AppController
 	public function editbyquestion($id = null)
 	{
 		$questionpicture = $this->Questionpictures->get($id, [
-			'contain' => []
+			'contain' => ['Pictures']
 		]);
 		if ($this->request->is(['patch', 'post', 'put'])) {
 			$questionpicture = $this->Questionpictures->patchEntity($questionpicture, $this->request->data);
@@ -155,7 +155,7 @@ class QuestionpicturesController extends AppController
 			}
 			$this->Flash->error(__('The questionpicture could not be saved. Please, try again.'));
 		}
-		$pictures = $this->Questionpictures->Pictures->find('list', ['limit' => 200]);
+		$pictures = $this->Questionpictures->Pictures->find('all', ['limit' => 200]);
 		$this->set(compact('questionpicture', 'pictures'));
 		$this->set('_serialize', ['questionpicture']);
 	}

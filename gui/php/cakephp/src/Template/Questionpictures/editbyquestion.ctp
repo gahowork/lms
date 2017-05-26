@@ -22,7 +22,16 @@
 		<?= $this->Form->create($questionpicture) ?>
 		<fieldset>
 			<?php
-						echo $this->Form->input('picture_id', ['class'=>'form-control'], ['options' => $pictures]);
+				echo $this->element(
+					'Gui/pictureSelect',
+					[
+						'options'=>[
+							'caption'=>__('Choose image'),
+							'selectedobject'=>$questionpicture,
+							'imagelist'=>$pictures
+						]
+					]
+				);
 			?>
 		</fieldset>
 		<?= $this->Form->button(__('Submit'),['class'=>'btn btn-warning form-control']) ?>
