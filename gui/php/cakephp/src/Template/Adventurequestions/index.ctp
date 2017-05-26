@@ -20,8 +20,8 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('adventure_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
 					<th scope="col" class="actions"></th>
@@ -31,8 +31,8 @@
 			<tbody>
 				<?php foreach ($adventurequestions as $adventurequestion): ?>
 					<tr>
-						<td><?= $this->Number->format($adventurequestion->id) ?></td>
-						<td><?= h($adventurequestion->created) ?></td>
+						<td class="id"><?= $this->Number->format($adventurequestion->id) ?></td>
+						<td class="created"><?= h($adventurequestion->created) ?></td>
 						<td><?= $adventurequestion->has('adventure') ? $this->Html->link($adventurequestion->adventure->description, ['controller' => 'Adventures', 'action' => 'view', $adventurequestion->adventure->id]) : '' ?></td>
 						<td><?= $adventurequestion->has('question') ? $this->Html->link($adventurequestion->question->header, ['controller' => 'Questions', 'action' => 'view', $adventurequestion->question->id]) : '' ?></td>
 						<td class="actions">

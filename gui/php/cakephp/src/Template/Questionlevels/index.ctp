@@ -20,8 +20,8 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('level_id') ?></th>
 					<th scope="col" class="actions"></th>
@@ -31,8 +31,8 @@
 			<tbody>
 				<?php foreach ($questionlevels as $questionlevel): ?>
 					<tr>
-						<td><?= $this->Number->format($questionlevel->id) ?></td>
-						<td><?= h($questionlevel->created) ?></td>
+						<td class="id"><?= $this->Number->format($questionlevel->id) ?></td>
+						<td class="created"><?= h($questionlevel->created) ?></td>
 						<td><?= $questionlevel->has('question') ? $this->Html->link($questionlevel->question->header, ['controller' => 'Questions', 'action' => 'view', $questionlevel->question->id]) : '' ?></td>
 						<td><?= $questionlevel->has('level') ? $this->Html->link($questionlevel->level->description, ['controller' => 'Levels', 'action' => 'view', $questionlevel->level->id]) : '' ?></td>
 						<td class="actions">

@@ -20,8 +20,8 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('email') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('password') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('usergroup_id') ?></th>
@@ -32,8 +32,8 @@
 			<tbody>
 				<?php foreach ($users as $user): ?>
 					<tr>
-						<td><?= $this->Number->format($user->id) ?></td>
-						<td><?= h($user->created) ?></td>
+						<td class="id"><?= $this->Number->format($user->id) ?></td>
+						<td class="created"><?= h($user->created) ?></td>
 						<td><?= h($user->email) ?></td>
 						<td><?= h($user->password) ?></td>
 						<td><?= $user->has('usergroup') ? $this->Html->link($user->usergroup->description, ['controller' => 'Usergroups', 'action' => 'view', $user->usergroup->id]) : '' ?></td>

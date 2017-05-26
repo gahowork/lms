@@ -20,10 +20,10 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('header') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('description') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="header" scope="col"><?= $this->Paginator->sort('header') ?></th>
+					<th class="description" scope="col"><?= $this->Paginator->sort('description') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('questiontype_id') ?></th>
 					<th scope="col" class="actions"></th>
 				</tr>
@@ -32,10 +32,10 @@
 			<tbody>
 				<?php foreach ($questions as $question): ?>
 					<tr>
-						<td><?= $this->Number->format($question->id) ?></td>
-						<td><?= h($question->created) ?></td>
-						<td><?= h($question->header) ?></td>
-						<td><?= h($question->description) ?></td>
+						<td class="id"><?= $this->Number->format($question->id) ?></td>
+						<td class="created"><?= h($question->created) ?></td>
+						<td class="header"><?= h($question->header) ?></td>
+						<td class="description"><?= h($question->description) ?></td>
 						<td><?= $question->has('questiontype') ? $this->Html->link($question->questiontype->description, ['controller' => 'Questiontypes', 'action' => 'view', $question->questiontype->id]) : '' ?></td>
 						<td class="actions">
 							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $question->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>

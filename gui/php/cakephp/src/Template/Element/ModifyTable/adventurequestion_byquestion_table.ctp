@@ -14,14 +14,14 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th><?= __('Description') ?></th>
+						<th class="description"><?= __('Description') ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach($question['adventurequestions'] as $singleadventurequestion) : ?>
 						<tr>
-							<td>
+							<td class="description">
 								<?= h($singleadventurequestion->adventure->description) ?>
 							</td>
 							<td class="actions">

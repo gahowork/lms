@@ -20,8 +20,9 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('description') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="description" scope="col"><?= $this->Paginator->sort('description') ?></th>
 					<th scope="col" class="actions"></th>
 				</tr>
 			</thead>
@@ -29,8 +30,9 @@
 			<tbody>
 				<?php foreach ($categories as $category): ?>
 					<tr>
-						<td><?= $this->Number->format($category->id) ?></td>
-						<td><?= h($category->description) ?></td>
+						<td class="id"><?= $this->Number->format($category->id) ?></td>
+						<td class="created"><?= h($category->created) ?></td>
+						<td class="description"><?= h($category->description) ?></td>
 						<td class="actions">
 							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $category->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 						</td>

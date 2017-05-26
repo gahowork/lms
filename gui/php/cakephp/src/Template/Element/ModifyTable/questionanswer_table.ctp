@@ -20,7 +20,7 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th><?= __('Description') ?></th>
+						<th class="description"><?= __('Description') ?></th>
 						<th><?= __('Result') ?></th>
 						<th class="actions"></th>
 					</tr>
@@ -28,7 +28,7 @@
 				<tbody>
 					<?php foreach($question['questionanswers'] as $singleanswer) : ?>
 						<tr>
-							<td><?= h($singleanswer->answer->description) ?></td>
+							<td class="description"><?= h($singleanswer->answer->description) ?></td>
 							<td><?= h($singleanswer->result) ?></td>
 							<td class="actions">
 								<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['controller'=>'questionanswers','action' => 'viewbyquestion', $singleanswer->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>

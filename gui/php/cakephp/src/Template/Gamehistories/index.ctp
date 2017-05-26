@@ -20,8 +20,8 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('game_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('questionanswers_id') ?></th>
 					<th scope="col" class="actions"></th>
@@ -31,8 +31,8 @@
 			<tbody>
 				<?php foreach ($gamehistories as $gamehistory): ?>
 					<tr>
-						<td><?= $this->Number->format($gamehistory->id) ?></td>
-						<td><?= h($gamehistory->created) ?></td>
+						<td class="id"><?= $this->Number->format($gamehistory->id) ?></td>
+						<td class="created"><?= h($gamehistory->created) ?></td>
 						<td><?= $gamehistory->has('game') ? $this->Html->link($gamehistory->game->id, ['controller' => 'Games', 'action' => 'view', $gamehistory->game->id]) : '' ?></td>
 						<td><?= $gamehistory->has('questionanswer') ? $this->Html->link($gamehistory->questionanswer->id, ['controller' => 'Questionanswers', 'action' => 'view', $gamehistory->questionanswer->id]) : '' ?></td>
 						<td class="actions">

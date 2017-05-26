@@ -20,8 +20,8 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('category_id') ?></th>
 					<th scope="col" class="actions"></th>
@@ -31,8 +31,8 @@
 			<tbody>
 				<?php foreach ($questioncategories as $questioncategory): ?>
 					<tr>
-						<td><?= $this->Number->format($questioncategory->id) ?></td>
-						<td><?= h($questioncategory->created) ?></td>
+						<td class="id"><?= $this->Number->format($questioncategory->id) ?></td>
+						<td class="created"><?= h($questioncategory->created) ?></td>
 						<td><?= $questioncategory->has('question') ? $this->Html->link($questioncategory->question->header, ['controller' => 'Questions', 'action' => 'view', $questioncategory->question->id]) : '' ?></td>
 						<td><?= $questioncategory->has('category') ? $this->Html->link($questioncategory->category->description, ['controller' => 'Categories', 'action' => 'view', $questioncategory->category->id]) : '' ?></td>
 						<td class="actions">

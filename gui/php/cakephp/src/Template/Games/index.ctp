@@ -20,8 +20,8 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('user_id') ?></th>
 					<th scope="col" class="actions"></th>
 				</tr>
@@ -30,8 +30,8 @@
 			<tbody>
 				<?php foreach ($games as $game): ?>
 					<tr>
-						<td><?= $this->Number->format($game->id) ?></td>
-						<td><?= h($game->created) ?></td>
+						<td class="id"><?= $this->Number->format($game->id) ?></td>
+						<td class="created"><?= h($game->created) ?></td>
 						<td><?= $game->has('user') ? $this->Html->link($game->user->email, ['controller' => 'Users', 'action' => 'view', $game->user->id]) : '' ?></td>
 						<td class="actions">
 							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $game->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>

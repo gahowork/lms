@@ -20,9 +20,9 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('description') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="description" scope="col"><?= $this->Paginator->sort('description') ?></th>
 					<th scope="col" class="actions"></th>
 				</tr>
 			</thead>
@@ -30,9 +30,9 @@
 			<tbody>
 				<?php foreach ($questiontypes as $questiontype): ?>
 					<tr>
-						<td><?= $this->Number->format($questiontype->id) ?></td>
-						<td><?= h($questiontype->created) ?></td>
-						<td><?= h($questiontype->description) ?></td>
+						<td class="id"><?= $this->Number->format($questiontype->id) ?></td>
+						<td class="created"><?= h($questiontype->created) ?></td>
+						<td class="description"><?= h($questiontype->description) ?></td>
 						<td class="actions">
 							<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['action' => 'view', $questiontype->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 						</td>

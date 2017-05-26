@@ -20,14 +20,14 @@
 			<table class="table table-hover">
 				<thead>
 					<tr>
-						<th><?= __('Description') ?></th>
+						<th class="description"><?= __('Description') ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
 				<tbody>
 					<?php foreach($question['questioncategories'] as $singlecategory) : ?>
 						<tr>
-							<td><?= h($singlecategory->category->description) ?></td>
+							<td class="description"><?= h($singlecategory->category->description) ?></td>
 							<td class="actions">
 								<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['controller'=>'questioncategories','action' => 'viewbyquestion', $singlecategory->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 							</td>

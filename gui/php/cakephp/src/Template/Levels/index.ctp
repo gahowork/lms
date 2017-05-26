@@ -20,9 +20,9 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('description') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="description" scope="col"><?= $this->Paginator->sort('description') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('picture_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('levelpoints') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('leveltarget') ?></th>
@@ -33,9 +33,9 @@
 			<tbody>
 				<?php foreach ($levels as $level): ?>
 					<tr>
-						<td><?= $this->Number->format($level->id) ?></td>
-						<td><?= h($level->created) ?></td>
-						<td><?= h($level->description) ?></td>
+						<td class="id"><?= $this->Number->format($level->id) ?></td>
+						<td class="created"><?= h($level->created) ?></td>
+						<td class="description"><?= h($level->description) ?></td>
 						<td><?= $level->has('picture') ? $this->Html->link($level->picture->description, ['controller' => 'Pictures', 'action' => 'view', $level->picture->id]) : '' ?></td>
 						<td><?= $this->Number->format($level->levelpoints) ?></td>
 						<td><?= $this->Number->format($level->leveltarget) ?></td>

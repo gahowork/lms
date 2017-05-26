@@ -20,8 +20,8 @@
 		<table class="table table-hover">
 			<thead>
 				<tr>
-					<th scope="col"><?= $this->Paginator->sort('id') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('created') ?></th>
+					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
+					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('question_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('picture_id') ?></th>
 					<th scope="col" class="actions"></th>
@@ -31,8 +31,8 @@
 			<tbody>
 				<?php foreach ($questionpictures as $questionpicture): ?>
 					<tr>
-						<td><?= $this->Number->format($questionpicture->id) ?></td>
-						<td><?= h($questionpicture->created) ?></td>
+						<td class="id"><?= $this->Number->format($questionpicture->id) ?></td>
+						<td class="created"><?= h($questionpicture->created) ?></td>
 						<td><?= $questionpicture->has('question') ? $this->Html->link($questionpicture->question->header, ['controller' => 'Questions', 'action' => 'view', $questionpicture->question->id]) : '' ?></td>
 						<td><?= $questionpicture->has('picture') ? $this->Html->link($questionpicture->picture->description, ['controller' => 'Pictures', 'action' => 'view', $questionpicture->picture->id]) : '' ?></td>
 						<td class="actions">
