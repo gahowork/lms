@@ -22,17 +22,17 @@
 		<?= $this->Form->create($category) ?>
 		<fieldset>
 			<?php
-						echo $this->Form->input('description',['class'=>'form-control']);
-						echo $this->element(
-							'Gui/pictureSelect',
-							[
-								'options'=>[
-									'caption'=>__('Categoryimage'),
-									'selectedobject'=>$category,
-									'imagelist'=>$pictures
-								]
-							]
-						);
+				echo $this->Form->input('description',['class'=>'form-control']);
+				echo $this->element(
+					'Gui/pictureSelect',
+					[
+						'options'=>[
+							'caption'=>__('Categoryimage'),
+							'selectedobject'=>$category,
+							'imagelist'=>$pictures
+						]
+					]
+				);
 			?>
 		</fieldset>
 		<?= $this->Form->button(__('Submit'),['class'=>'btn btn-warning form-control']) ?>
