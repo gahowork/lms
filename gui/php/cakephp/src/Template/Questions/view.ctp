@@ -49,7 +49,7 @@
 					</div>
 					<div class="form-group">
 						<label for="questionquestiontype_id"><?= __('Questiontype') ?></label>
-						<?= $question->has('questiontype') ? $this->Html->link('<span class="label">' . $question->questiontype->description . '</span> <span class="glyphicon glyphicon-zoom-in"></span>', ['controller' => 'Questiontypes', 'action' => 'view', $question->questiontype->id], ['class'=>'btn btn-info', 'id'=>'questionquestiontype_id', 'escape'=>false]) : '' ?>
+						<div class="form-control" id="questionquestiontype_id"><?= h($question->questiontype->description) ?></div>
 					</div>
 
 			</fieldset>
