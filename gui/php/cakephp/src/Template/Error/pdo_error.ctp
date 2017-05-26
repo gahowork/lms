@@ -23,7 +23,11 @@ if($error->errorInfo[0] == '23000' && $error->errorInfo[1] == 1451) {
 } else if($error->errorInfo[0] == '23000' && $error->errorInfo[1] == 1062) {
 	$heading_msg = __('Error deleting object.');
 	$body_msg = __('Heedlessness prevention.<br />You have to remove all details first, bevore you can delete this object.');
+} else if($error->errorInfo[0] == '22001' && $error->errorInfo[1] == 1406) {
+	$heading_msg = __('Error saving object.');
+	$body_msg = __('You data may be too long. Please shorten your input.');
 }
+
 
 ?>
 
