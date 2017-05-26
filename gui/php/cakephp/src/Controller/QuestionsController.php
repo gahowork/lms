@@ -19,7 +19,10 @@ class QuestionsController extends AppController
     public function index()
     {
         $this->paginate = [
-            'contain' => ['Questiontypes']
+            'contain' => ['Questiontypes'],
+			'order' => [
+				'Questions.header' => 'asc'
+			]
         ];
         $questions = $this->paginate($this->Questions);
 
