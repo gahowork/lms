@@ -1,0 +1,31 @@
+.adventures table .id {
+	display: none;
+}
+
+.adventures table .created {
+	display: none;
+}
+
+.categories table .id {
+	display: none;
+}
+
+.categories table .created {
+	display: none;
+}
+
+.levels table .id {
+	display: none;
+}
+
+.levels table .created {
+	display: none;
+}
+
+.questions table .id {
+	display: none;
+}
+
+.questions table .created {
+	display: none;
+}
