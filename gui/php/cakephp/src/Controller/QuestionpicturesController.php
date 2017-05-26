@@ -45,6 +45,23 @@ class QuestionpicturesController extends AppController
 	}
 
 	/**
+	 * Viewbyquestion method
+	 *
+	 * @param string|null $id Questionpicture id.
+	 * @return \Cake\Network\Response|null
+	 * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+	 */
+	public function viewbyquestion($id = null)
+	{
+		$questionpicture = $this->Questionpictures->get($id, [
+			'contain' => ['Questions', 'Pictures']
+		]);
+
+		$this->set('questionpicture', $questionpicture);
+		$this->set('_serialize', ['questionpicture']);
+	}
+
+	/**
 	 * Add method
 	 *
 	 * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
@@ -62,6 +79,29 @@ class QuestionpicturesController extends AppController
 			$this->Flash->error(__('The questionpicture could not be saved. Please, try again.'));
 		}
 		$questions = $this->Questionpictures->Questions->find('list', ['limit' => 200]);
+		$pictures = $this->Questionpictures->Pictures->find('list', ['limit' => 200]);
+		$this->set(compact('questionpicture', 'questions', 'pictures'));
+		$this->set('_serialize', ['questionpicture']);
+	}
+
+	/**
+	 * Addbyquestion method
+	 *
+	 * @return \Cake\Network\Response|null Redirects on successful add, renders view otherwise.
+	 */
+	public function addbyquestion($id = null)
+	{
+		$questionpicture = $this->Questionpictures->newEntity();
+		$questionpicture->question_id = $id;
+		if ($this->request->is('post')) {
+			$questionpicture = $this->Questionpictures->patchEntity($questionpicture, $this->request->data);
+			if ($this->Questionpictures->save($questionpicture)) {
+				$this->Flash->success(__('The questionpicture has been saved.'));
+
+				return $this->redirect(['controller'=>'questions', 'action' => 'view', $questionpicture->question_id]);
+			}
+			$this->Flash->error(__('The questionpicture could not be saved. Please, try again.'));
+		}
 		$pictures = $this->Questionpictures->Pictures->find('list', ['limit' => 200]);
 		$this->set(compact('questionpicture', 'questions', 'pictures'));
 		$this->set('_serialize', ['questionpicture']);
@@ -95,6 +135,32 @@ class QuestionpicturesController extends AppController
 	}
 
 	/**
+	 * Editbyquestion method
+	 *
+	 * @param string|null $id Questionpicture id.
+	 * @return \Cake\Network\Response|null Redirects on successful edit, renders view otherwise.
+	 * @throws \Cake\Network\Exception\NotFoundException When record not found.
+	 */
+	public function editbyquestion($id = null)
+	{
+		$questionpicture = $this->Questionpictures->get($id, [
+			'contain' => []
+		]);
+		if ($this->request->is(['patch', 'post', 'put'])) {
+			$questionpicture = $this->Questionpictures->patchEntity($questionpicture, $this->request->data);
+			if ($this->Questionpictures->save($questionpicture)) {
+				$this->Flash->success(__('The questionpicture has been saved.'));
+
+				return $this->redirect(['controller'=>'questionpictures', 'action' => 'viewbyquestion', $questionpicture->id]);
+			}
+			$this->Flash->error(__('The questionpicture could not be saved. Please, try again.'));
+		}
+		$pictures = $this->Questionpictures->Pictures->find('list', ['limit' => 200]);
+		$this->set(compact('questionpicture', 'pictures'));
+		$this->set('_serialize', ['questionpicture']);
+	}
+
+	/**
 	 * Delete method
 	 *
 	 * @param string|null $id Questionpicture id.
@@ -112,5 +178,25 @@ class QuestionpicturesController extends AppController
 		}
 
 		return $this->redirect(['action' => 'index']);
+	}
+
+	/**
+	 * Deletebyquestion method
+	 *
+	 * @param string|null $id Questionpicture id.
+	 * @return \Cake\Network\Response|null Redirects to index.
+	 * @throws \Cake\Datasource\Exception\RecordNotFoundException When record not found.
+	 */
+	public function deletebyquestion($id = null)
+	{
+		$this->request->allowMethod(['post', 'delete']);
+		$questionpicture = $this->Questionpictures->get($id);
+		if ($this->Questionpictures->delete($questionpicture)) {
+			$this->Flash->success(__('The questionpicture has been deleted.'));
+		} else {
+			$this->Flash->error(__('The questionpicture could not be deleted. Please, try again.'));
+		}
+
+		return $this->redirect(['controller'=>'questions', 'action' => 'view', $questionpicture->question_id]);
 	}
 }
