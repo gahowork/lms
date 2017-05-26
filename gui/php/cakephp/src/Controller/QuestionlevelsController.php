@@ -102,9 +102,8 @@ class QuestionlevelsController extends AppController
 			}
 			$this->Flash->error(__('The questionlevel could not be saved. Please, try again.'));
 		}
-		$questions = $this->Questionlevels->Questions->find('list', ['limit' => 200]);
 		$levels = $this->Questionlevels->Levels->find('list', ['limit' => 200]);
-		$this->set(compact('questionlevel', 'questions', 'levels'));
+		$this->set(compact('questionlevel', 'levels'));
 		$this->set('_serialize', ['questionlevel']);
 	}
 
@@ -156,9 +155,8 @@ class QuestionlevelsController extends AppController
 			}
 			$this->Flash->error(__('The questionlevel could not be saved. Please, try again.'));
 		}
-		$questions = $this->Questionlevels->Questions->find('list', ['limit' => 200]);
 		$levels = $this->Questionlevels->Levels->find('list', ['limit' => 200]);
-		$this->set(compact('questionlevel', 'questions', 'levels'));
+		$this->set(compact('questionlevel', 'levels'));
 		$this->set('_serialize', ['questionlevel']);
 	}
 
