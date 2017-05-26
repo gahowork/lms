@@ -23,7 +23,6 @@
 					<th class="id" scope="col"><?= $this->Paginator->sort('id') ?></th>
 					<th class="created" scope="col"><?= $this->Paginator->sort('created') ?></th>
 					<th class="description" scope="col"><?= $this->Paginator->sort('description') ?></th>
-					<th scope="col"><?= $this->Paginator->sort('picture_id') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('levelpoints') ?></th>
 					<th scope="col"><?= $this->Paginator->sort('leveltarget') ?></th>
 					<th scope="col" class="actions"></th>
@@ -36,7 +35,6 @@
 						<td class="id"><?= $this->Number->format($level->id) ?></td>
 						<td class="created"><?= h($level->created) ?></td>
 						<td class="description"><?= h($level->description) ?></td>
-						<td><?= $level->has('picture') ? $this->Html->link($level->picture->description, ['controller' => 'Pictures', 'action' => 'view', $level->picture->id]) : '' ?></td>
 						<td><?= $this->Number->format($level->levelpoints) ?></td>
 						<td><?= $this->Number->format($level->leveltarget) ?></td>
 						<td class="actions">
