@@ -11,23 +11,40 @@ use App\Controller\AppController;
 class QuestionsController extends AppController
 {
 
-    /**
-     * Index method
-     *
-     * @return \Cake\Network\Response|null
-     */
-    public function index()
-    {
-        $this->paginate = [
-            'contain' => ['Questiontypes'],
+	/**
+	 * Index method
+	 *
+	 * @return \Cake\Network\Response|null
+	*/
+	public function index()
+	{
+		$questionIndexFilter = $this->request->session()->read('QuestionIndex.Filter');
+
+		$conditions = [];
+		if (isset($questionIndexFilter)) {
+			foreach ($questionIndexFilter['header'] as $index => $filterelement) {
+				$conditions[] = ['Questions.header LIKE'=> '%'. h($filterelement) . '%'];
+			}
+			foreach ($questionIndexFilter['description'] as $index => $filterelement) {
+				$conditions[] = ['Questions.description LIKE'=> '%'. h($filterelement) . '%'];
+			}
+			foreach ($questionIndexFilter['questiontype'] as $index => $filterelement) {
+				$conditions[] = ['Questiontypes.description LIKE'=> '%'. h($filterelement) . '%'];
+			}
+		}
+
+		$this->paginate = [
+			'contain' => ['Questiontypes'],
 			'order' => [
 				'Questions.header' => 'asc'
-			]
-        ];
-        $questions = $this->paginate($this->Questions);
+			],
+			'conditions' => $conditions,
+		];
 
-        $this->set(compact('questions'));
-        $this->set('_serialize', ['questions']);
+		$questions = $this->paginate($this->Questions);
+
+		$this->set(compact('questions', 'questionIndexFilter'));
+		$this->set('_serialize', ['questions', 'questionIndexFilter']);
     }
 
     /**
@@ -114,4 +131,71 @@ class QuestionsController extends AppController
 
         return $this->redirect(['action' => 'index']);
     }
+
+	/**
+	 * addfilter method
+	 *
+	*/
+	public function addfilter()
+	{
+		$this->request->allowMethod(['post']);
+
+		$qif = $this->request->session()->read('QuestionIndex.Filter');
+		if(!isset($qif)){
+			$qif = [
+				'header'=>[],
+				'description'=>[],
+				'questiontype'=>[]
+			];
+		}
+
+		if(isset($this->request->data['header'])){
+			$qif['header'][] = $this->request->data['header'];
+		}
+		if(isset($this->request->data['description'])){
+			$qif['description'][] = $this->request->data['description'];
+		}
+		if(isset($this->request->data['questiontype'])){
+			$qif['questiontype'][] = $this->request->data['questiontype'];
+		}
+		$this->request->session()->write('QuestionIndex.Filter', $qif);
+
+		return $this->redirect(['action' => 'index']);
+	}
+
+	/**
+	 * deletefilter method
+	 *
+	*/
+	public function deletefilter($type, $id)
+	{
+		$qif = $this->request->session()->read('QuestionIndex.Filter');
+		if(!isset($qif)){
+			$qif = [
+				'header'=>[],
+				'description'=>[],
+				'questiontype'=>[]
+			];
+		}
+
+		if($type == 'header'){
+			if (isset($qif['header'][$id])) {
+				unset($qif['header'][$id]);
+			}
+		}
+
+		$this->request->session()->write('QuestionIndex.Filter', $qif);
+
+		return $this->redirect(['action' => 'index']);
+	}
+
+	/**
+	 * deletefilter method
+	 *
+	*/
+	public function deleteallfilter()
+	{
+		$this->request->session()->delete('QuestionIndex.Filter');
+		return $this->redirect(['action' => 'index']);
+	}
 }

@@ -95,3 +95,15 @@
 .questionanswerelement > div.row > div {
 	margin-bottom: 1em;
 }
+
+.questions nav.navbar:first-child {
+	margin-bottom: 0em;
+}
+
+.badge {
+	background-color: #f0ad4e!important;
+}
+
+.questionIndexFilterPanel a {
+	margin-right: 0.3em;
+}

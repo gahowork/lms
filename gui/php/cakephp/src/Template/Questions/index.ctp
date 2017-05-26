@@ -15,6 +15,8 @@
 		</div>
 	</nav>
 
+	<?= $this->Element('Gui/Filter/questionIndexFilterPanel'); ?>
+	
 	<div class="panel-body">
 		<div class="table-responsive">
 		<table class="table table-hover">
