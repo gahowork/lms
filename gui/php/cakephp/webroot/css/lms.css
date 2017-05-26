@@ -82,3 +82,16 @@
 	max-width: 12em;
 	max-height: 8em;
 }
+
+.questionelement .questionimageblock {
+	max-width: 40%;
+}
+
+.questionelement .answerimage {
+	/* max-width: 4em; */
+	/* max-height: 4em; */
+}
+
+.questionanswerelement > div {
+	margin-bottom: 1em;
+}
