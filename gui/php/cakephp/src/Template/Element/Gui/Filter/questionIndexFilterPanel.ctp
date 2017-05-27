@@ -7,7 +7,7 @@
 ?>
 
 <?php if ($filtercount > 0) : ?>
-	<div class="questionIndexFilterPanel panel-heading">
+	<div class="filterPanel panel-heading">
 		<?php
 			foreach ($questionIndexFilter['header'] as $index => $filterelement) {
 				echo $this->Html->link(
