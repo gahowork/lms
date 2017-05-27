@@ -98,7 +98,7 @@ class QuestionanswersController extends AppController
 			if ($this->Questionanswers->save($questionanswer)) {
 				$this->Flash->success(__('The questionanswer has been saved.'));
 
-				return $this->redirect(['controller'=>'questions', 'action' => 'view', $questionanswer->question_id]);
+				return $this->redirect(['controller'=>'questionanswers', 'action' => 'viewbyquestion', $questionanswer->id]);
 			}
 			$this->Flash->error(__('The questionanswer could not be saved. Please, try again.'));
 		}
