@@ -29,7 +29,7 @@
 		<fieldset>
 			<div class="form-group">
 				<label for="questionansweranswer_id"><?= __('Answer') ?></label>
-				<div class="form-control" id="questionanswerresult"><?= $questionanswer->answer->description ?></div>
+				<div class="form-control" id="questionanswerresult"><?= $questionanswer->answer ?></div>
 			</div>
 			<div class="form-group">
 				<label for="questionanswerresult"><?= __('Result') ?></label>

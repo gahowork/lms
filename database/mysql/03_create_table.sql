@@ -13,21 +13,6 @@ CREATE TABLE adventurequestions (
 	CONSTRAINT pk_adventurequestions PRIMARY KEY (id)
 );
 
-CREATE TABLE answers (
-	id INT NOT NULL AUTO_INCREMENT,
-	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-	description VARCHAR(255) NOT NULL,
-	CONSTRAINT pk_answers PRIMARY KEY (id)
-);
-
-CREATE TABLE answerpictures (
-	id INT NOT NULL AUTO_INCREMENT,
-	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
-	answer_id INT NOT NULL,
-	picture_id INT NOT NULL,
-	CONSTRAINT pk_answerpictures PRIMARY KEY (id)
-);
-
 CREATE TABLE categories (
 	id INT NOT NULL AUTO_INCREMENT,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
@@ -73,7 +58,7 @@ CREATE TABLE questions (
 	id INT NOT NULL AUTO_INCREMENT,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
 	header VARCHAR(50) NOT NULL,
-	description VARCHAR(255) NOT NULL,
+	description VARCHAR(500) NOT NULL,
 	questiontype_id INT NOT NULL,
 	CONSTRAINT pk_questions PRIMARY KEY (id)
 );
@@ -82,9 +67,17 @@ CREATE TABLE questionanswers (
 	id INT NOT NULL AUTO_INCREMENT,
 	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
 	question_id INT NOT NULL,
-	answer_id INT NOT NULL,
+	answer VARCHAR(255) NOT NULL,
 	result INT NOT NULL,
 	CONSTRAINT pk_questionanswers PRIMARY KEY (id)
+);
+
+CREATE TABLE questionanswerpictures (
+	id INT NOT NULL AUTO_INCREMENT,
+	created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP(),
+	questionanswer_id INT NOT NULL,
+	picture_id INT NOT NULL,
+	CONSTRAINT pk_questionanswerpictures PRIMARY KEY (id)
 );
 
 CREATE TABLE questioncategories (

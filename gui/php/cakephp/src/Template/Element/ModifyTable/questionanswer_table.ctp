@@ -28,13 +28,12 @@
 				<tbody>
 					<?php foreach($question['questionanswers'] as $singleanswer) : ?>
 						<tr>
-							<td class="description"><?= h($singleanswer->answer->description) ?></td>
+							<td class="description"><?= h($singleanswer->answer) ?></td>
 							<td><?= h($singleanswer->result) ?></td>
 							<td class="actions">
 								<?= $this->Html->link('<span class="glyphicon glyphicon-eye-open"></span>', ['controller'=>'questionanswers','action' => 'viewbyquestion', $singleanswer->id], ['class'=>'btn btn-info', 'escape'=>false]) ?>
 							</td>
 						</tr>
-
 					<?php endforeach; ?>
 				</tbody>
 

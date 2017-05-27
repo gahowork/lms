@@ -19,7 +19,7 @@ class QuestionanswersController extends AppController
 	public function index()
 	{
 		$this->paginate = [
-			'contain' => ['Questions', 'Answers']
+			'contain' => ['Questions']
 		];
 		$questionanswers = $this->paginate($this->Questionanswers);
 
@@ -37,7 +37,7 @@ class QuestionanswersController extends AppController
 	public function view($id = null)
 	{
 		$questionanswer = $this->Questionanswers->get($id, [
-			'contain' => ['Questions', 'Answers']
+			'contain' => ['Questions', 'Questionanswerpictures']
 		]);
 
 		$this->set('questionanswer', $questionanswer);
@@ -54,7 +54,7 @@ class QuestionanswersController extends AppController
 	public function viewbyquestion($id = null)
 	{
 		$questionanswer = $this->Questionanswers->get($id, [
-			'contain' => ['Questions', 'Answers']
+			'contain' => ['Questions', 'Questionanswerpictures']
 		]);
 
 		$this->set('questionanswer', $questionanswer);
@@ -79,8 +79,8 @@ class QuestionanswersController extends AppController
 			$this->Flash->error(__('The questionanswer could not be saved. Please, try again.'));
 		}
 		$questions = $this->Questionanswers->Questions->find('list', ['limit' => 200]);
-		$answers = $this->Questionanswers->Answers->find('list', ['limit' => 200]);
-		$this->set(compact('questionanswer', 'questions', 'answers'));
+		$questionanswerpictures = $this->Questionanswers->Questionanswerpictures->find('list', ['limit' => 200]);
+		$this->set(compact('questionanswer', 'questions', 'questionanswerpictures'));
 		$this->set('_serialize', ['questionanswer']);
 	}
 
@@ -103,8 +103,8 @@ class QuestionanswersController extends AppController
 			$this->Flash->error(__('The questionanswer could not be saved. Please, try again.'));
 		}
 		$questions = $this->Questionanswers->Questions->find('list', ['limit' => 200]);
-		$answers = $this->Questionanswers->Answers->find('list', ['limit' => 200]);
-		$this->set(compact('questionanswer', 'questions', 'answers'));
+		$questionanswerpictures = $this->Questionanswers->Questionanswerpictures->find('list', ['limit' => 200]);
+		$this->set(compact('questionanswer', 'questions', 'questionanswerpictures'));
 		$this->set('_serialize', ['questionanswer']);
 	}
 
@@ -130,8 +130,8 @@ class QuestionanswersController extends AppController
 			$this->Flash->error(__('The questionanswer could not be saved. Please, try again.'));
 		}
 		$questions = $this->Questionanswers->Questions->find('list', ['limit' => 200]);
-		$answers = $this->Questionanswers->Answers->find('list', ['limit' => 200]);
-		$this->set(compact('questionanswer', 'questions', 'answers'));
+		$questionanswerpictures = $this->Questionanswers->Questionanswerpictures->find('list', ['limit' => 200]);
+		$this->set(compact('questionanswer', 'questions', 'questionanswerpictures'));
 		$this->set('_serialize', ['questionanswer']);
 	}
 
@@ -161,8 +161,8 @@ class QuestionanswersController extends AppController
 			$this->Flash->error(__('The questionanswer could not be saved. Please, try again.'));
 		}
 		$questions = $this->Questionanswers->Questions->find('list', ['limit' => 200]);
-		$answers = $this->Questionanswers->Answers->find('list', ['limit' => 200]);
-		$this->set(compact('questionanswer', 'questions', 'answers'));
+		$questionanswerpictures = $this->Questionanswers->Questionanswerpictures->find('list', ['limit' => 200]);
+		$this->set(compact('questionanswer', 'questions', 'questionanswerpictures'));
 		$this->set('_serialize', ['questionanswer']);
 	}
 

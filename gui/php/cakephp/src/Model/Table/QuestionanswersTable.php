@@ -45,9 +45,9 @@ class QuestionanswersTable extends Table
             'foreignKey' => 'question_id',
             'joinType' => 'INNER'
         ]);
-        $this->belongsTo('Answers', [
-            'foreignKey' => 'answer_id',
-            'joinType' => 'INNER'
+
+		$this->hasMany('Questionanswerpictures', [
+            'foreignKey' => 'questionanswer_id'
         ]);
     }
 
@@ -80,7 +80,6 @@ class QuestionanswersTable extends Table
     public function buildRules(RulesChecker $rules)
     {
         $rules->add($rules->existsIn(['question_id'], 'Questions'));
-        $rules->add($rules->existsIn(['answer_id'], 'Answers'));
 
         return $rules;
     }

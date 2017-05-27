@@ -9,7 +9,7 @@ use Cake\ORM\Entity;
  * @property int $id
  * @property \Cake\I18n\Time $created
  * @property int $question_id
- * @property int $answer_id
+ * @property string $answer
  * @property string $result
  *
  * @property \App\Model\Entity\Question $question

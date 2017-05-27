@@ -10,18 +10,6 @@ ADD
 		FOREIGN KEY (question_id)
 		REFERENCES questions (id);
 
-ALTER TABLE answerpictures
-ADD
-	CONSTRAINT fk_answerpictures_answers
-		FOREIGN KEY (answer_id)
-		REFERENCES answers (id);
-
-ALTER TABLE answerpictures
-ADD
-	CONSTRAINT fk_answerpictures_pictures
-		FOREIGN KEY (picture_id)
-		REFERENCES pictures (id);
-
 ALTER TABLE categories
 ADD
 	CONSTRAINT fk_categories_pictures
@@ -64,11 +52,18 @@ ADD
 		FOREIGN KEY (question_id)
 		REFERENCES questions (id);
 
-ALTER TABLE questionanswers
+ALTER TABLE questionanswerpictures
 ADD
-	CONSTRAINT fk_questionanswers_answers
-		FOREIGN KEY (answer_id)
-		REFERENCES answers (id);
+	CONSTRAINT fk_questionanswerpictures_answers
+		FOREIGN KEY (questionanswer_id)
+		REFERENCES questionanswers (id);
+
+ALTER TABLE questionanswerpictures
+ADD
+	CONSTRAINT fk_questionanswerpictures_pictures
+		FOREIGN KEY (picture_id)
+		REFERENCES pictures (id);
+
 
 ALTER TABLE questioncategories
 ADD

@@ -11,7 +11,7 @@ use Cake\ORM\Entity;
  * @property string $description
  * @property string|resource $image
  *
- * @property \App\Model\Entity\Answerpicture[] $answerpictures
+ * @property \App\Model\Entity\Questionanswerpicture[] $questionanswerpictures
  * @property \App\Model\Entity\Category[] $categories
  * @property \App\Model\Entity\Level[] $levels
  * @property \App\Model\Entity\Questionpicture[] $questionpictures

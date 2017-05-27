@@ -7,22 +7,22 @@ use Cake\ORM\Table;
 use Cake\Validation\Validator;
 
 /**
- * Answerpictures Model
+ * Questionanswerpictures Model
  *
+ * @property \Cake\ORM\Association\BelongsTo $Questions
  * @property \Cake\ORM\Association\BelongsTo $Answers
- * @property \Cake\ORM\Association\BelongsTo $Pictures
  *
- * @method \App\Model\Entity\Answerpicture get($primaryKey, $options = [])
- * @method \App\Model\Entity\Answerpicture newEntity($data = null, array $options = [])
- * @method \App\Model\Entity\Answerpicture[] newEntities(array $data, array $options = [])
- * @method \App\Model\Entity\Answerpicture|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
- * @method \App\Model\Entity\Answerpicture patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
- * @method \App\Model\Entity\Answerpicture[] patchEntities($entities, array $data, array $options = [])
- * @method \App\Model\Entity\Answerpicture findOrCreate($search, callable $callback = null, $options = [])
+ * @method \App\Model\Entity\Questionanswerpictures get($primaryKey, $options = [])
+ * @method \App\Model\Entity\Questionanswerpictures newEntity($data = null, array $options = [])
+ * @method \App\Model\Entity\Questionanswerpictures[] newEntities(array $data, array $options = [])
+ * @method \App\Model\Entity\Questionanswerpictures|bool save(\Cake\Datasource\EntityInterface $entity, $options = [])
+ * @method \App\Model\Entity\Questionanswerpictures patchEntity(\Cake\Datasource\EntityInterface $entity, array $data, array $options = [])
+ * @method \App\Model\Entity\Questionanswerpictures[] patchEntities($entities, array $data, array $options = [])
+ * @method \App\Model\Entity\Questionanswerpictures findOrCreate($search, callable $callback = null, $options = [])
  *
  * @mixin \Cake\ORM\Behavior\TimestampBehavior
  */
-class AnswerpicturesTable extends Table
+class QuestionanswerpicturesTable extends Table
 {
 
     /**
@@ -35,14 +35,14 @@ class AnswerpicturesTable extends Table
     {
         parent::initialize($config);
 
-        $this->table('answerpictures');
+        $this->table('questionanswerpictures');
         $this->displayField('id');
         $this->primaryKey('id');
 
         $this->addBehavior('Timestamp');
 
-        $this->belongsTo('Answers', [
-            'foreignKey' => 'answer_id',
+        $this->belongsTo('Questionanswers', [
+            'foreignKey' => 'questionanswer_id',
             'joinType' => 'INNER'
         ]);
         $this->belongsTo('Pictures', [
@@ -63,6 +63,10 @@ class AnswerpicturesTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
+        $validator
+            ->requirePresence('result', 'create')
+            ->notEmpty('result');
+
         return $validator;
     }
 
@@ -75,7 +79,7 @@ class AnswerpicturesTable extends Table
      */
     public function buildRules(RulesChecker $rules)
     {
-        $rules->add($rules->existsIn(['answer_id'], 'Answers'));
+        $rules->add($rules->existsIn(['questionanswer_id'], 'Questionanswers'));
         $rules->add($rules->existsIn(['picture_id'], 'Pictures'));
 
         return $rules;

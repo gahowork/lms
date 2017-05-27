@@ -50,38 +50,35 @@ DROP PROCEDURE generatequestions;
 
 INSERT INTO questions(id, header, description, questiontype_id) VALUES(301, 'How deep the rabbit hole gooes', 'Select one', 1);
 
-INSERT INTO answers(id, description) VALUES (1, 'Answer 1');
-INSERT INTO answers(id, description) VALUES (2, 'Answer 2');
-INSERT INTO answers(id, description) VALUES (3, 'Answer 3');
-INSERT INTO answers(id, description) VALUES (4, 'Answer 4');
-INSERT INTO answers(id, description) VALUES (5, 'Answer 5');
-INSERT INTO answers(id, description) VALUES (6, 'Answer 6');
-INSERT INTO answers(id, description) VALUES (7, 'Answer 7');
-INSERT INTO answers(id, description) VALUES (8, 'Answer 8');
-INSERT INTO answers(id, description) VALUES (9, 'The answer is 21, i know it.');
-INSERT INTO answers(id, description) VALUES (10, 'I dont know');
-INSERT INTO answers(id, description) VALUES (11, '4375 rabbitfeet or 64738 goosefeet');
-INSERT INTO answers(id, description) VALUES (12, 'Can i ask alice?');
+INSERT INTO questionanswers(question_id, answer, result) VALUES(1, 'Answer 1', 1);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(1, 'Answer 2', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(1, 'Answer 3', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(1, 'Answer 4', 0);
 
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(1, 1, 1);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(1, 2, 0);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(1, 3, 0);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(1, 4, 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(2, 'Answer 5', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(2, 'Answer 6', 1);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(2, 'Answer 7', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(2, 'Answer 8', 0);
 
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(2, 5, 0);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(2, 6, 1);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(2, 7, 0);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(2, 8, 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(3, 'Answer 5', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(3, 'Answer 6', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(3, 'Answer 7', 1);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(3, 'Answer 8', 0);
 
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(3, 5, 1);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(3, 6, 1);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(3, 7, 0);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(3, 8, 1);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(4, 'Answer 1', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(4, 'Answer 2', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(4, 'Answer 3', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(4, 'Answer 4', 1);
 
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(301, 9, 0);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(301, 10, 0);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(301, 11, 1);
-INSERT INTO questionanswers(question_id, answer_id, result) VALUES(301, 12, 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(5, 'Answer 1', 1);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(5, 'Answer 2', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(5, 'Answer 5', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(5, 'Answer 6', 0);
+
+INSERT INTO questionanswers(question_id, answer, result) VALUES(301, 'The answer is 21, i know it.', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(301, 'I dont know', 0);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(301, '4375 rabbitfeet or 64738 goosefeet', 1);
+INSERT INTO questionanswers(question_id, answer, result) VALUES(301, 'Can i ask alice?', 0);
 
 INSERT INTO questioncategories(question_id, category_id) VALUES(1, 1);
 INSERT INTO questioncategories(question_id, category_id) VALUES(2, 1);
@@ -102,22 +99,6 @@ INSERT INTO questionlevels(question_id, level_id) VALUES(4, 5);
 INSERT INTO questionlevels(question_id, level_id) VALUES(5, 4);
 INSERT INTO questionlevels(question_id, level_id) VALUES(5, 5);
 
-INSERT INTO answerpictures(answer_id, picture_id) VALUES(1, 1);
-INSERT INTO answerpictures(answer_id, picture_id) VALUES(2, 1);
-INSERT INTO answerpictures(answer_id, picture_id) VALUES(3, 1);
-INSERT INTO answerpictures(answer_id, picture_id) VALUES(4, 1);
-INSERT INTO answerpictures(answer_id, picture_id) VALUES(5, 1);
-INSERT INTO answerpictures(answer_id, picture_id) VALUES(7, 1);
-INSERT INTO answerpictures(answer_id, picture_id) VALUES(8, 1);
-INSERT INTO answerpictures(answer_id, picture_id) VALUES(8, 2);
-
-INSERT INTO questionpictures(question_id, picture_id) VALUES(1, 1);
-INSERT INTO questionpictures(question_id, picture_id) VALUES(2, 2);
-INSERT INTO questionpictures(question_id, picture_id) VALUES(3, 3);
-INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 1);
-INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 2);
-INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 3);
-
 INSERT INTO adventures(id, description) VALUES(1, 'Adventure 1');
 INSERT INTO adventures(id, description) VALUES(2, 'Adventure 2');
 INSERT INTO adventures(id, description) VALUES(3, 'Adventure 3');
@@ -135,3 +116,27 @@ INSERT INTO adventurequestions(adventure_id, question_id) VALUES(3, 9);
 INSERT INTO adventurequestions(adventure_id, question_id) VALUES(3, 10);
 INSERT INTO adventurequestions(adventure_id, question_id) VALUES(3, 11);
 INSERT INTO adventurequestions(adventure_id, question_id) VALUES(3, 12);
+
+INSERT INTO questionpictures(question_id, picture_id) VALUES(1, 1);
+INSERT INTO questionpictures(question_id, picture_id) VALUES(2, 2);
+INSERT INTO questionpictures(question_id, picture_id) VALUES(3, 3);
+INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 1);
+INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 2);
+INSERT INTO questionpictures(question_id, picture_id) VALUES(4, 3);
+
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(1, 1);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(2, 2);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(3, 3);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(4, 4);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(5, 5);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(6, 6);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(7, 7);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(8, 8);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(9, 9);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(9, 10);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(10, 11);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(10, 12);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(11, 13);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(11, 14);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(12, 15);
+INSERT INTO questionanswerpictures(questionanswer_id, picture_id) VALUES(12, 16);

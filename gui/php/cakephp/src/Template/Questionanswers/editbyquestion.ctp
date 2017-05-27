@@ -22,7 +22,7 @@
 		<?= $this->Form->create($questionanswer) ?>
 		<fieldset>
 			<?php
-						echo $this->Form->input('answer_id', ['class'=>'form-control'], ['options' => $answers]);
+						echo $this->Form->input('answer', ['class'=>'form-control']);
 						echo $this->Form->input('result',['type'=>'text', 'class'=>'form-control']);
 			?>
 		</fieldset>
