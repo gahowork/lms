@@ -39,3 +39,4 @@
 	</fieldset>
 	</div>
 </div>
+<?= $this->element('ModifyTable/questionanswerpicture_table') ?>
