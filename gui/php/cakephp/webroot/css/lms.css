@@ -78,10 +78,6 @@ nav .navbar-nav > li > a {
 	margin-right: 0.5em;
 }
 
-.panel .navbar-nav li:first-child .btn {
-	/* margin-left: 0em; */
-}
-
 .panel .navbar-nav li:last-child .btn {
 	margin-right: 0em;
 }
@@ -177,31 +173,22 @@ nav .navbar-nav > li > a {
 	max-width: 40%;
 }
 
-.questionelement .answerimage {
-	/* max-width: 4em; */
-	/* max-height: 4em; */
-}
-
 .questionanswerelement > div.row > div {
 	margin-bottom: 1em;
-}
-
-.questions nav.navbar:first-child {
-	margin-bottom: 0em;
-}
-
-.questions nav.navbar:first-child + div {
-	margin-top: 0.1em;
-	margin-left: 0.1em;
-	margin-right: 0.1em;
 }
 
 .badge {
 	background-color: #f0ad4e!important;
 }
 
-.questionIndexFilterPanel a {
-	margin-right: 0.3em;
+.filterPanel a:first-child {
+	padding-left: 0.5em;
+}
+
+.filterPanel a {
+	padding-top: 0em;
+	padding-bottom: 0.5em;
+	margin-right: 0.5em;
 }
 
 .questions div#questiondescription {
