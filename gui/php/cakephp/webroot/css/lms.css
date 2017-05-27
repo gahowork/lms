@@ -114,9 +114,15 @@ nav .navbar-nav > li > a {
 	}
 }
 
+@media (max-height: 560px) {
+	.pictureselect {
+		max-height: 13em;
+	}
+}
+
 @media (max-height: 480px) {
 	.pictureselect {
-		max-height: 12em;
+		max-height: 9em;
 	}
 }
 
