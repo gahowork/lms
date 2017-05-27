@@ -2,15 +2,17 @@
 	<div class="panel-body">
 		<?php if($question->questiontype->id == 2 || $question->questiontype->id == 3) : ?>
 			<div class="questionimageblock col-xs-4 col-sm-4 col-md-4 col-lg-4">
-				<?php
-					if(count($question->questionpictures) > 1) {
-						foreach($question['questionpictures'] as $questionpicture) {
-							echo $this->Element('Gui/pictureViewQuestion',['picture'=>$questionpicture->picture]);
+				<div class="row">
+					<?php
+						if(count($question->questionpictures) > 1) {
+							foreach($question['questionpictures'] as $questionpicture) {
+								echo $this->Element('Gui/pictureViewQuestion',['picture'=>$questionpicture->picture, 'imageMatrix'=>true]);
+							}
+						} else {
+							echo $this->Element('Gui/pictureViewQuestion',['picture'=>$question->questionpictures[0]->picture]);
 						}
-					} else {
-						echo $this->Element('Gui/pictureViewQuestion',['picture'=>$question->questionpictures[0]->picture]);
-					}
-				?>
+					?>
+				</div>
 			</div>
 		<?php endif; ?>
 		<?php if($question->questiontype->id == 3) : ?>
