@@ -3,7 +3,6 @@
 	if (isset($questionIndexFilter)) {
 		$filtercount += count($questionIndexFilter['header']);
 		$filtercount += count($questionIndexFilter['description']);
-		$filtercount += count($questionIndexFilter['questiontype']);
 	}
 ?>
 
@@ -26,18 +25,6 @@
 			foreach ($questionIndexFilter['description'] as $index => $filterelement) {
 				echo $this->Html->link(
 					$this->Html->tag('span', __('Description: ') . h($filterelement), array('class' => 'badge')),
-					[
-						'controller' => 'questions',
-						'action' => 'deletefilter',
-						$index
-					],
-					['escape'=>false]
-				);
-			}
-
-			foreach ($questionIndexFilter['questiontype'] as $index => $filterelement) {
-				echo $this->Html->link(
-					$this->Html->tag('span', __('Questiontype: ') . h($filterelement), array('class' => 'badge')),
 					[
 						'controller' => 'questions',
 						'action' => 'deletefilter',

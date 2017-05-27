@@ -28,9 +28,6 @@ class QuestionsController extends AppController
 			foreach ($questionIndexFilter['description'] as $index => $filterelement) {
 				$conditions[] = ['Questions.description LIKE'=> '%'. h($filterelement) . '%'];
 			}
-			foreach ($questionIndexFilter['questiontype'] as $index => $filterelement) {
-				$conditions[] = ['Questiontypes.description LIKE'=> '%'. h($filterelement) . '%'];
-			}
 		}
 
 		$this->paginate = [
@@ -144,8 +141,7 @@ class QuestionsController extends AppController
 		if(!isset($qif)){
 			$qif = [
 				'header'=>[],
-				'description'=>[],
-				'questiontype'=>[]
+				'description'=>[]
 			];
 		}
 
@@ -154,9 +150,6 @@ class QuestionsController extends AppController
 		}
 		if(isset($this->request->data['description'])){
 			$qif['description'][] = $this->request->data['description'];
-		}
-		if(isset($this->request->data['questiontype'])){
-			$qif['questiontype'][] = $this->request->data['questiontype'];
 		}
 		$this->request->session()->write('QuestionIndex.Filter', $qif);
 
@@ -173,14 +166,19 @@ class QuestionsController extends AppController
 		if(!isset($qif)){
 			$qif = [
 				'header'=>[],
-				'description'=>[],
-				'questiontype'=>[]
+				'description'=>[]
 			];
 		}
 
 		if($type == 'header'){
 			if (isset($qif['header'][$id])) {
 				unset($qif['header'][$id]);
+			}
+		}
+
+		if($type == 'description'){
+			if (isset($qif['description'][$id])) {
+				unset($qif['description'][$id]);
 			}
 		}
 

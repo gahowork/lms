@@ -11,10 +11,5 @@
 		<?= $this->Form->input('description', ['label'=>false, 'type'=>'text', 'class'=>'form-control', 'name'=>'description']) ?>
 		<?= $this->Form->end() ?>
 	</th>
-	<th class="questiontype" scope="col">
-		<?= $this->Form->create('', ['url'=>['controller'=>'questions', 'action'=>'addfilter']]) ?>
-		<?= $this->Form->input('questiontype', ['label'=>false, 'type'=>'text', 'class'=>'form-control', 'name'=>'questiontype']) ?>
-		<?= $this->Form->end() ?>
-	</th>
 	<th scope="col" class="actions"></th>
 </tr>
