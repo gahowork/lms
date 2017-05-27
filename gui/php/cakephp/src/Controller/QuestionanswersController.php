@@ -54,7 +54,7 @@ class QuestionanswersController extends AppController
 	public function viewbyquestion($id = null)
 	{
 		$questionanswer = $this->Questionanswers->get($id, [
-			'contain' => ['Questions', 'Questionanswerpictures']
+			'contain' => ['Questions', 'Questionanswerpictures', 'Questionanswerpictures.Pictures']
 		]);
 
 		$this->set('questionanswer', $questionanswer);
