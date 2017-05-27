@@ -22,6 +22,9 @@ class QuestionsController extends AppController
 
 		$conditions = [];
 		if (isset($questionIndexFilter)) {
+			foreach ($questionIndexFilter['id'] as $index => $filterelement) {
+				$conditions[] = ['Questions.id'=> h($filterelement)];
+			}
 			foreach ($questionIndexFilter['header'] as $index => $filterelement) {
 				$conditions[] = ['Questions.header LIKE'=> '%'. h($filterelement) . '%'];
 			}
@@ -139,11 +142,15 @@ class QuestionsController extends AppController
 		$qif = $this->request->session()->read('QuestionIndex.Filter');
 		if(!isset($qif)){
 			$qif = [
+				'id'=>[],
 				'header'=>[],
 				'description'=>[]
 			];
 		}
 
+		if(isset($this->request->data['id'])){
+			$qif['id'][] = $this->request->data['id'];
+		}
 		if(isset($this->request->data['header'])){
 			$qif['header'][] = $this->request->data['header'];
 		}
@@ -164,9 +171,16 @@ class QuestionsController extends AppController
 		$qif = $this->request->session()->read('QuestionIndex.Filter');
 		if(!isset($qif)){
 			$qif = [
+				'id'=>[],
 				'header'=>[],
 				'description'=>[]
 			];
+		}
+
+		if($type == 'id'){
+			if (isset($qif['id'][$id])) {
+				unset($qif['id'][$id]);
+			}
 		}
 
 		if($type == 'header'){

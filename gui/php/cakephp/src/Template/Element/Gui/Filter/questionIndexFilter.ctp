@@ -1,5 +1,9 @@
 <tr>
-	<th class="id" scope="col"></th>
+	<th class="id" scope="col">
+		<?= $this->Form->create('', ['url'=>['controller'=>'questions', 'action'=>'addfilter']]) ?>
+		<?= $this->Form->input('id', ['label'=>false, 'type'=>'text', 'class'=>'form-control', 'name'=>'id']) ?>
+		<?= $this->Form->end() ?>
+	</th>
 	<th class="created" scope="col"></th>
 	<th class="header" scope="col">
 		<?= $this->Form->create('', ['url'=>['controller'=>'questions', 'action'=>'addfilter']]) ?>
