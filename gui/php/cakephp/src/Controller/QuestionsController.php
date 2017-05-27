@@ -32,9 +32,8 @@ class QuestionsController extends AppController
 
 		$this->paginate = [
 			'contain' => ['Questiontypes'],
-			'order' => [
-				'Questions.header' => 'asc'
-			],
+			'sort' => 'Questions.header',
+			'direction' => 'asc',
 			'conditions' => $conditions,
 		];
 
