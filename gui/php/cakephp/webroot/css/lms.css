@@ -179,6 +179,8 @@ nav .navbar-nav > li > a {
 
 .badge {
 	background-color: #f0ad4e!important;
+	margin-top: 0.2em;
+	margin-bottom: 0.2em;
 }
 
 .filterPanel a:first-child {
