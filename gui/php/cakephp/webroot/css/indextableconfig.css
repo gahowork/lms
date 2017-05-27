@@ -36,7 +36,7 @@
 	}
 }
 
-@media display (max-width: 640px) {
+@media (max-width: 640px) {
 	.questions table .description {
 		display: none;
 	}

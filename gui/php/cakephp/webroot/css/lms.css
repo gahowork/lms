@@ -117,3 +117,24 @@
 .questions div#questiondescription {
 	height: auto;
 }
+
+body > nav .navbar-header {
+	float: left;
+}
+
+body > nav .navbar-nav {
+	float: left;
+	margin: 0;
+}
+
+body > nav .navbar-nav.navbar-right {
+	float: right;
+}
+
+body > nav .navbar-nav > li {
+	float: left;
+}
+
+body > nav .navbar-nav > li > a {
+	padding-top: 15px;
+}
