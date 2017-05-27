@@ -63,10 +63,6 @@ class QuestionanswerpicturesTable extends Table
             ->integer('id')
             ->allowEmpty('id', 'create');
 
-        $validator
-            ->requirePresence('result', 'create')
-            ->notEmpty('result');
-
         return $validator;
     }
 
