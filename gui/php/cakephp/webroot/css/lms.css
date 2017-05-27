@@ -29,6 +29,10 @@
 	margin-right: 0.5em;
 }
 
+.panel nav li:first-child .btn {
+	margin-left: 0.5em;
+}
+
 .panel nav li:last-child .btn {
 	margin-right: 0em;
 }
@@ -38,7 +42,7 @@
 	width: 3em;
 }
 
-.panel nav ul.nav.navbar-nav {
+.panel nav ul .nav.navbar-nav {
 	float: left;
 }
 
@@ -118,23 +122,23 @@
 	height: auto;
 }
 
-body > nav .navbar-header {
+nav .navbar-header {
 	float: left;
 }
 
-body > nav .navbar-nav {
+nav .navbar-nav {
 	float: left;
 	margin: 0;
 }
 
-body > nav .navbar-nav.navbar-right {
+nav .navbar-nav.navbar-right {
 	float: right;
 }
 
-body > nav .navbar-nav > li {
+nav .navbar-nav > li {
 	float: left;
 }
 
-body > nav .navbar-nav > li > a {
+nav .navbar-nav > li > a {
 	padding-top: 15px;
 }
