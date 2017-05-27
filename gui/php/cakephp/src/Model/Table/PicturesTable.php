@@ -9,7 +9,6 @@ use Cake\Validation\Validator;
 /**
  * Pictures Model
  *
- * @property \Cake\ORM\Association\HasMany $Answerpictures
  * @property \Cake\ORM\Association\HasMany $Categories
  * @property \Cake\ORM\Association\HasMany $Levels
  * @property \Cake\ORM\Association\HasMany $Questionpictures
