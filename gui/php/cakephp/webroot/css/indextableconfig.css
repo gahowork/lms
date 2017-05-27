@@ -23,7 +23,13 @@
 }
 
 .questions table .id {
-	display: none;
+	max-width: 3em;
+}
+
+@media (max-width: 768px) {
+	.questions table .id {
+		display: none;
+	}
 }
 
 .questions table .created {
