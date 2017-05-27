@@ -25,29 +25,70 @@
 	font-size: 1.5em;
 }
 
-.panel nav li .btn {
+nav .navbar-header {
+	float: left;
+}
+
+nav .navbar-nav {
+	float: left;
+	margin-top: 0em;
+	margin-bottom: 0em;
+	margin-left: 0em;
+	margin-right: 0em;
+}
+
+nav .navbar-nav.navbar-right {
+	float: right;
+}
+
+nav .navbar-nav > li {
+	float: left;
+}
+
+nav .navbar-nav > li > a {
+	padding-top: 15px;
+}
+
+.panel nav div.container-fluid {
+	padding-left: 0em;
+	padding-right: 0.5em;
+}
+
+.panel .navbar-header {
+	margin-right: 0em;
+	margin-left: 0em;
+}
+
+.panel .panel-heading {
+	padding-top: 0em;
+	padding-bottom: 0em;
+	padding-right: 0em;
+	padding-left: 0em;
+}
+
+.panel .navbar {
+	margin-bottom: 0em;
+}
+
+.panel .navbar .navbar-header .navbar-brand {
+	margin-left: 0em!important;
+}
+
+.panel .navbar .navbar-nav > li .btn {
 	margin-right: 0.5em;
 }
 
-.panel nav li:first-child .btn {
-	margin-left: 0.5em;
+.panel .navbar-nav li:first-child .btn {
+	/* margin-left: 0em; */
 }
 
-.panel nav li:last-child .btn {
+.panel .navbar-nav li:last-child .btn {
 	margin-right: 0em;
 }
 
 .panel table tr th.actions,
 .panel table tr td.actions {
 	width: 3em;
-}
-
-.panel nav ul .nav.navbar-nav {
-	float: left;
-}
-
-.panel nav ul.nav.navbar-nav.navbar-right {
-	float: right;
 }
 
 .picture {
@@ -57,8 +98,26 @@
 .pictureselect {
 	padding-top: 1em;
 	padding-left: 1em;
-	max-height: 18em;
+	max-height: 35em;
 	overflow-y: scroll;
+}
+
+@media (max-height: 900px) {
+	.pictureselect {
+		max-height: 28em;
+	}
+}
+
+@media (max-height: 640px) {
+	.pictureselect {
+		max-height: 18em;
+	}
+}
+
+@media (max-height: 480px) {
+	.pictureselect {
+		max-height: 12em;
+	}
 }
 
 .pictureselect input {
@@ -71,20 +130,41 @@
 }
 
 .pictureselect input + label {
-	border-radius: 1em;
+	border-radius: 1.2em;
 }
 
 .pictureselect input:checked + label img{
-	box-shadow: 0 0 1em #f0ad4e;
+	box-shadow: 0 0 1.2em #f0ad4e;
 }
 
 .pictureselect input + label img.checked {
-	box-shadow: 0 0 1em #66afe9;
+	box-shadow: 0 0 1.2em #66afe9;
 }
 
 .pictureselect .pictureselector {
-	max-width: 12em;
-	max-height: 8em;
+	max-width: 18em;
+	max-height: 12em;
+}
+
+@media (max-width: 1280px) {
+	.pictureselect .pictureselector {
+		max-width: 12em;
+		max-height: 8em;
+	}
+}
+
+@media (max-width: 768px) {
+	.pictureselect .pictureselector {
+		max-width: 9em;
+		max-height: 6em;
+	}
+}
+
+@media (max-width: 360px) {
+	.pictureselect .pictureselector {
+		max-width: 6em;
+		max-height: 4em;
+	}
 }
 
 .questionelement .questionimageblock {
@@ -122,23 +202,18 @@
 	height: auto;
 }
 
-nav .navbar-header {
-	float: left;
-}
+@media (max-width: 768px) {
+	.config-button span {
+		font-size: 6em;
+	}
 
-nav .navbar-nav {
-	float: left;
-	margin: 0;
-}
+	.config-button span.half {
+		font-size: 3em;
+	}
 
-nav .navbar-nav.navbar-right {
-	float: right;
-}
-
-nav .navbar-nav > li {
-	float: left;
-}
-
-nav .navbar-nav > li > a {
-	padding-top: 15px;
+	.config-button {
+		width: 9.5em;
+		margin-right: 1em;
+		margin-bottom: 1em;
+	}
 }
