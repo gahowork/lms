@@ -28,6 +28,7 @@
 					[
 						'controller' => 'questions',
 						'action' => 'deletefilter',
+						'description',
 						$index
 					],
 					['escape'=>false]
