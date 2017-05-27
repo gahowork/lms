@@ -148,11 +148,7 @@ class QuestionanswersController extends AppController
 			'contain' => []
 		]);
 		if ($this->request->is(['patch', 'post', 'put'])) {
-			debug($questionanswer);
-			debug($this->request->data);
 			$questionanswer = $this->Questionanswers->patchEntity($questionanswer, $this->request->data);
-			debug($questionanswer);
-
 			if ($this->Questionanswers->save($questionanswer)) {
 				$this->Flash->success(__('The questionanswer has been saved.'));
 
