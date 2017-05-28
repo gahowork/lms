@@ -45,7 +45,7 @@
 					</div>
 					<div class="form-group">
 						<label for="questiondescription"><?= __('Description') ?></label>
-						<div class="form-control" id="questiondescription"><?= h($question->description) ?></div>
+						<div class="form-control" id="questiondescription"><?= $question->description ?></div>
 					</div>
 					<div class="form-group">
 						<label for="questionquestiontype_id"><?= __('Questiontype') ?></label>
