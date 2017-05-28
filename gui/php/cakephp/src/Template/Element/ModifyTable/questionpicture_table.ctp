@@ -1,6 +1,8 @@
 <?php
 	$panelMode='panel-default';
-	if (count($question['questionpictures']) < 1) {
+	if ($question['questiontype_id'] == 1 && count($question['questionpictures']) > 0) {
+		$panelMode='panel-warning';
+	} else if ( ($question['questiontype_id'] == 2 || $question['questiontype_id'] == 3) && count($question['questionpictures']) < 1) {
 		$panelMode='panel-warning';
 	}
 ?>
