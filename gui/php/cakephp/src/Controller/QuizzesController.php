@@ -32,7 +32,24 @@ class QuizzesController extends AppController
 		$randomquestion = $questionObject->get(
 			$this->randomquestionid(),
 			[
-				'contain' => ['Questionpictures.Pictures','Questiontypes', 'Adventurequestions', 'Questionanswers', 'Questioncategories', 'Questionlevels', 'Questionpictures', 'Questioncategories.Categories', 'Questionlevels.Levels', 'Adventurequestions.Adventures', 'Questionanswers.Questionanswerpictures', 'Questionanswers.Questionanswerpictures.Pictures' ]
+				'contain' => [
+					'Questionanswers',
+					'Questionanswers.Questionanswerpictures',
+					'Questionanswers.Questionanswerpictures.Pictures',
+
+					'Questiontypes',
+					'Questionpictures',
+					'Questionpictures.Pictures',
+
+					'Questioncategories',
+					'Questioncategories.Categories',
+
+					'Questionlevels',
+					'Questionlevels.Levels',
+
+					'Adventurequestions',
+					'Adventurequestions.Adventures',
+				]
 			]
 		);
 
