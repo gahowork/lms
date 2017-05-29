@@ -3,6 +3,7 @@ namespace App\Controller;
 
 use App\Controller\AppController;
 use Cake\ORM\TableRegistry;
+use App\Form\QuestionAnswerCheckForm;
 
 /**
  * Quizzes Controller
@@ -72,6 +73,54 @@ class QuizzesController extends AppController
 	 */
 	public function selectadventure()
 	{
+	}
+
+	public function checkanswer()
+	{
+		$this->request->allowMethod(['post']);
+
+		$qaf = new QuestionAnswerCheckForm();
+		if($qaf->validate($this->request->data) ) {
+			$questionanswerTable = TableRegistry::get('Questionanswers');
+			$questionanswer = $questionanswerTable->get($this->request->data['questionanswer_id']);
+
+			if($questionanswer->result == 1) {
+				return $this->redirect(['controller'=>'quizzes', 'action' => 'checkok']);
+			} else {
+				return $this->redirect(['controller'=>'quizzes', 'action' => 'checknotok', $questionanswer->question_id]);
+			}
+		}
+	}
+
+	public function checkok()
+	{
+
+	}
+
+	public function checknotok($id = null)
+	{
+		$questionTable = TableRegistry::get('Questions');
+		$question = $questionTable->get(
+			$id,
+			[
+				'contain' => [
+					'Questionanswers',
+					'Questionanswers.Questionanswerpictures',
+					'Questionanswers.Questionanswerpictures.Pictures'
+				]
+			]
+		);
+
+		$rightAnswer = null;
+		foreach ($question->questionanswers as $key => $questionanswer) {
+			if($questionanswer->result == 1){
+				$rightAnswer = $questionanswer;
+				break; //first one is quite well for this demo
+			}
+		}
+
+		$this->set(compact('rightAnswer'));
+		$this->set('_serialize', ['rightAnswer']);
 	}
 
 	private function randomquestionid()
