@@ -53,16 +53,21 @@ class PicturesController extends AppController
 			$filedata = $this->request->data['File'];
 			unset($this->request->data['File']);
 
-			$uploadedFiles = $this->uploadFiles('img/upload', $filedata);
-			$this->request->data['filename'] = $uploadedFiles['urls'][0]['filename'];
+			if(isset($filedata['error']) && $filedata['error'] == 0){
+				$uploadedFiles = $this->uploadFiles('img/upload', $filedata);
+				$this->request->data['filename'] = $uploadedFiles['urls'][0]['filename'];
 
-			$picture = $this->Pictures->patchEntity($picture, $this->request->data);
-			if ($this->Pictures->save($picture)) {
-				$this->Flash->success(__('The picture has been saved.'));
+				$picture = $this->Pictures->patchEntity($picture, $this->request->data);
+				if ($this->Pictures->save($picture)) {
+					$this->Flash->success(__('The picture has been saved.'));
 
-				return $this->redirect(['action' => 'view', $picture->id]);
+					return $this->redirect(['action' => 'view', $picture->id]);
+				}
+				$this->Flash->error(__('The picture could not be saved. Please, try again.'));
+			} else {
+				$this->Flash->error(__('The picture could not be uploaded. Please, try again.'));
 			}
-			$this->Flash->error(__('The picture could not be saved. Please, try again.'));
+
 		}
 		$this->set(compact('picture'));
 		$this->set('_serialize', ['picture']);
