@@ -2,7 +2,7 @@
 configfile=00_config
 logfile=$(awk -F "=" '/logfile/ {print $2}' $configfile)
 dbname=$(awk -F "=" '/dbname/ {print $2}' $configfile)
-mysql="/usr/local/mysql/bin/mysql"
+mysql=`which mysql | sed "s/\/\//\//g"`
 
 ShowMsg() {
     echo $1
