@@ -42,7 +42,7 @@ class PicturesTable extends Table
 
         $this->addBehavior('Timestamp');
 
-        $this->hasMany('Answerpictures', [
+        $this->hasMany('Questionanswerpictures', [
             'foreignKey' => 'picture_id'
         ]);
         $this->hasMany('Categories', [
