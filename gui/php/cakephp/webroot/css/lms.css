@@ -181,6 +181,14 @@ nav .navbar-nav > li > a {
 	font-size: 2em;
 }
 
+.checkpanel.panel .panel-heading {
+	padding-left: 0.5em;
+	padding-top: 0.5em;
+	padding-bottom: 0.5em;
+	font-weight: bold;
+	font-size: 2em;
+}
+
 .badge {
 	background-color: #f0ad4e!important;
 	margin-top: 0.2em;
