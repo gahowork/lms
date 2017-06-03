@@ -26,7 +26,7 @@
 					'Gui/pictureSelect',
 					[
 						'options'=>[
-							'caption'=>__('Choose image'),
+							'caption'=>__('Choose an image'),
 							'selectedobject'=>$questionpicture,
 							'imagelist'=>$pictures
 						]
